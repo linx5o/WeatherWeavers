@@ -1,0 +1,75 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'Entity Layer
+
+
+
+package "entity" #dedede{
+    class Weather {
+        - cityName: String
+        - time: dateTime
+        - temperature: Double
+        - humidity: Double
+        - pressure: Double
+        - windSpeed: Double
+        - windDegree: Double
+        - weatherDescription: String
+
+        + getter and setter methods ()
+    }
+}
+
+'Application Layer
+
+package "application" #dedede{
+    class GetWeatherInteractor implements GetWeatherInputBoundary {
+        + execute(cityName: String): Weather
+        + findWeatherByCityName(cityName: String): Weather
+    }
+
+    'GetWeatherInputBoundary -u> Weather
+
+    interface WeatherDataAccessInterface {
+        + getCityName(): String
+        + getTemperature(): Double
+        + getHumidity(): Double
+        + getPressure(): Double
+        + getWindSpeed(): Double
+        + getWindDegree(): Double
+        + getWeatherDescription(): String
+    }
+
+    GetWeatherInteractor --d> WeatherDataAccessInterface
+
+    interface GetWeatherInputBoundary{
+        + execute(cityName: String): Weather
+    }
+
+    interface GetWeatherOutputBoundary {
+        + prepareSuccessView(WeatherOuputData: Weather)
+        + prepareFailView(String: error)
+    }
+
+    GetWeatherInteractor -l> GetWeatherOutputBoundary
+    'GetWeatherOutputBoundary -u> Weather
+}
+
+'data layer
+
+package "data" {
+    class WeatherDataAccessObject {
+        + findWeatherByCityName(cityName: String): Weather
+    }
+
+    class API {
+        Gets the weather "data" from the API for the city
+    }
+
+    WeatherDataAccessObject .|> WeatherDataAccessInterface
+    WeatherDataAccessObject -r> API
+}
+
+GetWeatherInteractor -r> Weather
+
+@enduml
