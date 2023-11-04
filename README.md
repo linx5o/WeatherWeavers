@@ -13,4 +13,8 @@ First we will start with creating the interfaces together. Then we will split up
 
 ![GetWeatherUseCase.png](GetWeatherUseCase.png)
 
-Each person will have their own fork to work on their part of the project. 
+Each person will have their own branch to work on their part of the project. 
+
+## Mock View
+
+![Home Page.png](Home%20Page.png)
