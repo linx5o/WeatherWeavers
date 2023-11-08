@@ -2,11 +2,11 @@ package interface_adapter;
 
 import java.beans.PropertyChangeListener;
 
-public abstract class ViewModel {
+public abstract class WeatherViewModel {
 
     private String viewName;
 
-    public ViewModel(String viewName) {
+    public WeatherViewModel(String viewName) {
         this.viewName = viewName;
     }
     public String getViewName() {
