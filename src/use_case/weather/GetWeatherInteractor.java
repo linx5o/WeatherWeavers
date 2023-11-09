@@ -2,8 +2,8 @@ package use_case.weather;
 
 public class GetWeatherInteractor implements GetWeatherInputBoundary{
 
-    private GetWeatherDataAccessInterface getWeatherDataAccessObject;
-    private GetWeatherOutputBoundary getWeatherPresenter;
+    final GetWeatherDataAccessInterface getWeatherDataAccessObject;
+    final GetWeatherOutputBoundary getWeatherPresenter;
 
     public GetWeatherInteractor(GetWeatherDataAccessInterface getWeatherDataAccessObject, GetWeatherOutputBoundary getWeatherPresenter) {
         this.getWeatherDataAccessObject = getWeatherDataAccessObject;

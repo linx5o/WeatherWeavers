@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class GetWeatherInputData {
 
-    private String city;
-    private String date;
+    final private String city;
+    final private String date;
 
     public GetWeatherInputData(String city, String date) {
         this.city = city;
