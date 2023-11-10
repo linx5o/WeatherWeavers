@@ -1,9 +1,11 @@
 package entity;
 
 public class Humidity {
+    private String descriptions;
     private double humidity;
 
-    public Humidity(double humidity) {
+    public Humidity(double humidity, String descriptions) {
+        this.descriptions = descriptions;
         this.humidity = humidity;
     }
 
@@ -14,6 +16,15 @@ public class Humidity {
     public double getHumidity() {
         return this.humidity;
     }
+
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
+    }
+
+    public String getDescriptions() {
+        return descriptions;
+    }
 }
+
 
 
