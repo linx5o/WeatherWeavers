@@ -1,6 +1,8 @@
 package app;
 
 import interface_adapter.*;
+import view.GetWeather.GetWeatherView;
+import view.ViewManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -172,11 +174,11 @@ public class Main {
         JPanel content = new JPanel(cardLayout);
         mainSide.add(content, BorderLayout.CENTER);
 
-//        MainContentViewManagerModel mainContentViewManagerModel = new MainContentViewManagerModel();
-//        new MainContentViewManager(content, cardLayout, mainContentViewManagerModel);
-//
-//        GetWeatherView getWeatherView = GetWeatherUseCaseFactory.create(mainContentViewManagerModel, getWeatherViewModel, otherCitiesViewModel, hourlyViewModel, humidityViewModel, forecastViewModel, citiesViewModel, mapViewModel);
-//        content.add(getWeatherView, getWeatherView.viewName);
+        ViewManagerModel mainContentViewManagerModel = new ViewManagerModel();
+        ViewManager mainContentViewManager = new ViewManager(content, cardLayout, mainContentViewManagerModel);
+
+        GetWeatherView getWeatherView = GetWeatherUseCaseFactory.create(mainContentViewManagerModel, getWeatherViewModel, otherCitiesViewModel, hourlyViewModel, humidityViewModel, forecastViewModel, citiesViewModel, mapViewModel);
+        content.add(getWeatherView, getWeatherView.viewName);
 //
 //        CitiesView citiesView = CitiesUseCaseFactory.create(mainContentViewManagerModel, citiesViewModel, mapViewModel, getWeatherViewModel);
 //        content.add(citiesView, citiesView.viewName);

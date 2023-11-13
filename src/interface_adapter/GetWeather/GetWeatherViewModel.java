@@ -6,7 +6,12 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class GetWeatherViewModel extends ViewModel {
-    // TODO
+    public static final String HIGH_LABEL = "High";
+    public static final String LOW_LABEL = "Low";
+    public static final String WIND_LABEL = "Wind";
+    public static final String RAIN_LABEL = "Rain";
+    public static final String SUNRISE_LABEL = "Sunrise";
+    public static final String SUNSET_LABEL = "Sunset";
 
     private GetWeatherState state = new GetWeatherState();
 
