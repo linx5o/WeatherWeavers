@@ -1,6 +1,7 @@
-package interface_adapter;
+package interface_adapter.GetWeather;
 
-import javax.swing.text.View;
+import interface_adapter.ViewModel;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -11,7 +12,7 @@ public class OtherCitiesViewModel extends ViewModel {
     private OtherCitiesState state = new OtherCitiesState();
 
     public OtherCitiesViewModel() {
-        super("otherCities");
+        super("other cities");
     }
 
     public void setState(OtherCitiesState state) {
@@ -21,7 +22,7 @@ public class OtherCitiesViewModel extends ViewModel {
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public void firePropertyChanged() {
-        support.firePropertyChange(OTHER_CITIES_LABEL, null, this.state);
+        support.firePropertyChange("other cities", null, this.state);
     }
 
     public void addPropertyChangeListener(java.beans.PropertyChangeListener listener) {

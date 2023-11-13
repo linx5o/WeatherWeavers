@@ -1,5 +1,7 @@
-package interface_adapter;
+package interface_adapter.Search;
 
-public class SearchViewModel {
+import interface_adapter.ViewModel;
+
+public class SearchViewModel extends ViewModel{
     // TODO
 }

@@ -1,4 +1,6 @@
-package interface_adapter;
+package interface_adapter.Sidebar;
+
+import interface_adapter.ViewModel;
 
 import javax.swing.*;
 import java.beans.PropertyChangeListener;
