@@ -1,6 +1,5 @@
 package use_case.get_weather;
 
-import entity.Weather;
 import java.time.LocalDate;
 
 public class GetWeatherInputData {
