@@ -1,21 +1,22 @@
 package entity;
 
 public class Weather {
-    private String descriptions;
+    private final String descriptions;
 
-    private Temperature temperature;
-    private Location location;
-    private Humidity humidity;
+    private final Temperature temperature;
+    private final Location location;
+    private final Boolean celcius;
 
-    public Weather(String descriptions, Temperature temperature, Location location, Humidity humidity) {
+    public Weather(String descriptions, Temperature temperature, Location location, Boolean celcius) {
         this.descriptions = descriptions;
         this.temperature = temperature;
         this.location = location;
-        this.humidity = humidity;
+        this.celcius = celcius;
+
     }
 
-    public Humidity getHumidity() {
-        return humidity;
+    public Boolean getCelcius() {
+        return celcius;
     }
 
     public Location getLocation() {
@@ -28,21 +29,5 @@ public class Weather {
 
     public Temperature getTemperature() {
         return temperature;
-    }
-
-    public void setDescriptions(String descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public void setHumidity(Humidity humidity) {
-        this.humidity = humidity;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setTemperature(Temperature temperature) {
-        this.temperature = temperature;
     }
 }
