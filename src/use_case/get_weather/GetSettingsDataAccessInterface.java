@@ -1,7 +1,7 @@
 package use_case.get_weather;
 
-public interface GetSettingsDataAccessInterface {
-    Boolean getIfCelcius();
+import entity.Settings;
 
-    String getPreferredCity();
+public interface GetSettingsDataAccessInterface {
+    Settings getSettings();
 }
