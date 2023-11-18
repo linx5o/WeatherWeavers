@@ -21,7 +21,7 @@ public class HourlyInteractor implements HourlyInputBoundary{
                 Boolean celsius = hourlySettingsDataAccessObject.getSettings().getCelsius();
                 Boolean timeFormat = hourlySettingsDataAccessObject.getSettings().getTimeFormat();
                 ArrayList<LocalTime> hours = hourlyDataAccessObject.getHours(hourlyInputData.getCity(), hourlyInputData.getTime());
-                ArrayList<Integer> temps = hourlyDataAccessObject.getTemps(hourlyInputData.getCity(), hours, celsius);
+                ArrayList<Integer> temps = hourlyDataAccessObject.getTemps(hourlyInputData.getCity(), hourlyInputData.getTime(), celsius);
                 HourlyOutputData hourlyOutputData = new HourlyOutputData(hours, temps, timeFormat);
                 hourlyPresenter.prepareSuccessView(hourlyOutputData);
             } catch (Exception e) {
@@ -35,7 +35,7 @@ public class HourlyInteractor implements HourlyInputBoundary{
             Boolean celsius = hourlySettingsDataAccessObject.getSettings().getCelsius();
             Boolean timeFormat = hourlySettingsDataAccessObject.getSettings().getTimeFormat();
             ArrayList<LocalTime> hours = hourlyDataAccessObject.getHours(hourlySettingsDataAccessObject.getSettings().getDefaultCity(), localTime);
-            ArrayList<Integer> temps = hourlyDataAccessObject.getTemps(hourlySettingsDataAccessObject.getSettings().getDefaultCity(), hours, celsius);
+            ArrayList<Integer> temps = hourlyDataAccessObject.getTemps(hourlySettingsDataAccessObject.getSettings().getDefaultCity(), localTime, celsius);
             HourlyOutputData hourlyOutputData = new HourlyOutputData(hours, temps, timeFormat);
             hourlyPresenter.prepareSuccessView(hourlyOutputData);
         } catch (Exception e) {
