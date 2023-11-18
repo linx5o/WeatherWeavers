@@ -4,12 +4,12 @@ import entity.Weather;
 
 import java.util.List;
 
-public class ForcastOutputData {
+public class ForecastOutputData {
     private final int days;
     private final List<Weather> weathers;
     private final boolean information;
 
-    public ForcastOutputData(int days, List<Weather> weathers, boolean information) {
+    public ForecastOutputData(int days, List<Weather> weathers, boolean information) {
         this.days = days;
         this.weathers = weathers;
         this.information = information;

@@ -1,23 +1,27 @@
 package app;
 
-import data_access.GetSettingsDataAccessObject;
-import data_access.GetWeatherDataAccessObject;
+import data_access.*;
 import interface_adapter.*;
 import interface_adapter.Cities.CitiesViewModel;
-import interface_adapter.ForecastViewModel;
 import interface_adapter.GetWeather.GetWeatherViewModel;
 import interface_adapter.GetWeather.HourlyViewModel;
 import interface_adapter.GetWeather.HumidityViewModel;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
 import interface_adapter.Map.MapViewModel;
-import interface_adapter.Search.SearchViewModel;
 import interface_adapter.Settings.SettingsViewModel;
-import interface_adapter.Sidebar.SidebarViewModel;
+import use_case.forecast.ForecastDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.get_weather.GetWeatherDataAccessInterface;
-import view.Weather.GetWeatherView;
+import use_case.hourly.HourlyDataAccessInterface;
+import use_case.humidity.HumidityDataAccessInterface;
+import use_case.other_cities.OtherCitiesDataAccessInterface;
+import use_case.other_cities.OtherCitiesListDataAccessInterface;
 import view.ViewManager;
 import view.Weather.WeatherView;
+import interface_adapter.ForecastViewModel;
+import interface_adapter.Search.SearchViewModel;
+import interface_adapter.Sidebar.SidebarViewModel;
+import view.Weather.GetWeatherView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -143,7 +147,11 @@ public class Main {
         // Define Data Access Objects
         GetWeatherDataAccessInterface getWeatherDataAccessObject = new GetWeatherDataAccessObject();
         GetSettingsDataAccessInterface getSettingsDataAccessObject = new GetSettingsDataAccessObject();
-
+        HourlyDataAccessInterface hourlyDataAccessObject = new HourlyDataAccessObject();
+        HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
+        OtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
+        OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject = new OtherCitiesListDataAccessObject();
+        ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
 
 
         // The main application view.
