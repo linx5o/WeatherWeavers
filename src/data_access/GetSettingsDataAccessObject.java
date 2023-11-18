@@ -4,7 +4,7 @@ import use_case.get_weather.GetSettingsDataAccessInterface;
 
 public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface {
     @Override
-    public Boolean getIfCelcius() {
+    public Boolean getIfCelsius() {
         return null;
     }
 
