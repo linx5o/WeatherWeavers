@@ -1,7 +1,12 @@
 package app;
 
-import interface_adapter.ForecastViewModel;
+import interface_adapter.Forecast.ForecastController;
+import interface_adapter.Forecast.ForecastPresenter;
+import interface_adapter.Forecast.ForecastViewModel;
 import use_case.forecast.ForecastDataAccessInterface;
+import use_case.forecast.ForecastInputBoundary;
+import use_case.forecast.ForecastInteractor;
+import use_case.forecast.ForecastOutputBoundary;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import view.Weather.ForecastView;
 

@@ -23,10 +23,10 @@ public class ForecastInteractor implements ForecastInputBoundary {
         List<Weather> forcastList = forecastDataAccessObject.getForecast(location, days);
         if (information){
             ForecastOutputData forecastOutputData = new ForecastOutputData(days, forcastList, true);
-            forecastPresenter.prepareInformationForcast(forecastOutputData);
+            forecastPresenter.prepareInformationForecast(forecastOutputData);
         } else {
             ForecastOutputData forecastOutputData = new ForecastOutputData(days, forcastList, false);
-            forecastPresenter.prepareForcast(forecastOutputData);
+            forecastPresenter.prepareForecast(forecastOutputData);
         }
     }
 }
