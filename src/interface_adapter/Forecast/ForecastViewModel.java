@@ -1,15 +1,15 @@
-package interface_adapter.Forcast;
+package interface_adapter.Forecast;
 
 import interface_adapter.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class ForcastViewModel extends ViewModel {
+public class ForecastViewModel extends ViewModel {
 
-    private ForcastState state = new ForcastState();
+    private ForecastState state = new ForecastState();
 
-    public ForcastViewModel(String viewName) {
+    public ForecastViewModel(String viewName) {
         super(viewName);
     }
 
@@ -24,11 +24,11 @@ public class ForcastViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
-    public void setState(ForcastState state) {
+    public void setState(ForecastState state) {
         this.state = state;
     }
 
-    public ForcastState getState() {
+    public ForecastState getState() {
         return state;
     }
 }

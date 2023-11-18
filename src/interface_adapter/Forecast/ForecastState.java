@@ -1,24 +1,24 @@
-package interface_adapter.Forcast;
+package interface_adapter.Forecast;
 
 import entity.Location;
 import entity.Weather;
 
 import java.util.List;
 
-public class ForcastState {
+public class ForecastState {
     private Location location;
     private int days;
     private boolean information;
     private List<Weather> wetherList;
 
-    public ForcastState(Location location, int days, boolean information, List<Weather> wetherList) {
+    public ForecastState(Location location, int days, boolean information, List<Weather> wetherList) {
         this.location = location;
         this.days = days;
         this.information = information;
         this.wetherList = wetherList;
     }
 
-    public ForcastState() {
+    public ForecastState() {
 
     }
 
