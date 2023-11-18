@@ -1,7 +1,12 @@
 package app;
 
+import interface_adapter.GetWeather.HumidityController;
+import interface_adapter.GetWeather.HumidityPresenter;
 import interface_adapter.GetWeather.HumidityViewModel;
 import use_case.humidity.HumidityDataAccessInterface;
+import use_case.humidity.HumidityInputBoundary;
+import use_case.humidity.HumidityInteractor;
+import use_case.humidity.HumidityOutputBoundary;
 import view.Weather.HumidityView;
 
 public class HumidityUseCaseFactory {
