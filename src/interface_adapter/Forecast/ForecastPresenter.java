@@ -8,19 +8,18 @@ public class ForecastPresenter implements ForecastOutputBoundary {
     private final ForecastViewModel forcastViewModel;
     private ViewManagerModel viewManagerModel;
 
-    public ForecastPresenter(ViewManagerModel viewManagerModel,
-                             ForecastViewModel forcastViewModel) {
-        this.forcastViewModel = forcastViewModel;
+    public ForecastPresenter(ForecastViewModel forecastViewModel) {
+        this.forcastViewModel = forecastViewModel;
         this.viewManagerModel = viewManagerModel;
     }
 
     @Override
-    public void prepareInformationForcast(ForecastOutputData forcast) {
+    public void prepareInformationForecast(ForecastOutputData forecast) {
 
     }
 
     @Override
-    public void prepareForcast(ForecastOutputData forcast) {
+    public void prepareForecast(ForecastOutputData forecast) {
 
     }
 }

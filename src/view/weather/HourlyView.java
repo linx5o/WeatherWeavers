@@ -1,5 +1,6 @@
 package view.Weather;
 
+import interface_adapter.GetWeather.HourlyViewModel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
