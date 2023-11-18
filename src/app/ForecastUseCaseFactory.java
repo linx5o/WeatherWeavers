@@ -1,5 +1,6 @@
 package app;
 
+
 import use_case.forecast.ForecastDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import view.Weather.ForecastView;
