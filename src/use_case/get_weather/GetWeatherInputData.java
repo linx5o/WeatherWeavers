@@ -1,18 +1,19 @@
 package use_case.get_weather;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class GetWeatherInputData {
 
     final private String city;
-    final private String date;
 
     public GetWeatherInputData(String city) {
         this.city = city;
-        this.date = LocalDate.now().toString();
     }
 
     public String getCity() {return city;}
 
-    public String getDate() {return date;}
+    public String getTime() {
+        LocalTime localTime = LocalTime.now();
+        return localTime.toString();
+    }
 }
