@@ -1,7 +1,8 @@
 package view.Weather;
 
-import interface_adapter.ForecastViewModel;
-import interface_adapter.GetWeather.GetWeatherController;
+import interface_adapter.Forecast.ForecastController;
+import interface_adapter.Forecast.ForecastState;
+import interface_adapter.Forecast.ForecastViewModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
