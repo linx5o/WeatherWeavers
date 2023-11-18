@@ -1,7 +1,8 @@
 package view.Weather;
 
-import interface_adapter.ForecastViewModel;
-import interface_adapter.GetWeather.GetWeatherController;
+import interface_adapter.Forcast.ForcastController;
+import interface_adapter.Forcast.ForcastState;
+import interface_adapter.Forcast.ForcastViewModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,15 +13,15 @@ import java.beans.PropertyChangeListener;
 public class ForecastView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "forecast";
 
-    private final ForecastController controller;
-    private final ForecastViewModel forecastViewModel;
+    private final ForcastController controller;
+    private final ForcastViewModel forecastViewModel;
 
-    public ForecastView(ForecastController controller, ForecastViewModel forecastViewModel) {
+    public ForecastView(ForcastController controller, ForcastViewModel forecastViewModel) {
         this.controller = controller;
         this.forecastViewModel = forecastViewModel;
         forecastViewModel.addPropertyChangeListener(this);
 
-        ForecastState state = forecastViewModel.getState();
+        ForcastState state = forecastViewModel.getState();
     }
 
     @Override
