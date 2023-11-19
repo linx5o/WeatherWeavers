@@ -3,18 +3,18 @@ package use_case.forecast;
 import entity.Location;
 
 public class ForecastInputData {
-    final private Location location;
+    final private String city;
     final private int days;
     final private boolean information;
 
-    public ForecastInputData(Location location, int days, boolean information) {
-        this.location = location;
+    public ForecastInputData(String city, int days, boolean information) {
+        this.city = city;
         this.days = days;
         this.information = information;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getCity() {
+        return city;
     }
 
     public int getDays() {

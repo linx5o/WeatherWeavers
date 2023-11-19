@@ -31,7 +31,7 @@ public class WeatherFactory {
             OtherCitiesView otherCitiesView = OtherCitiesUseCaseFactory.create(otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject);
             ForecastView forecastView = ForecastUseCaseFactory.create(forecastViewModel, forecastDataAccessObject, getSettingsDataAccessObject);
 
-            return new WeatherView(viewManager, getWeatherView);
+            return new WeatherView(getWeatherView, hourlyView, humidityView, otherCitiesView, forecastView);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not open settings file");
         }
