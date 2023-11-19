@@ -1,23 +1,25 @@
 package interface_adapter.GetWeather;
 
-
 public class HumidityState {
-    private int humidityPercentage;
+    private String humidity = null;
+    private String descriptions = null;
 
-    // Default constructor
-    public HumidityState() {
-        // Initialize with a default value if necessary
-        this.humidityPercentage = 0; // Default humidity percentage
+    public HumidityState() {}
+
+    public String getHumidity() {
+        return humidity;
     }
 
-    // Getter and Setter
-    public int getHumidityPercentage() {
-        return humidityPercentage;
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
-    public void setHumidityPercentage(int humidityPercentage) {
-        this.humidityPercentage = humidityPercentage;
+    public String getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
     }
 
 }
-

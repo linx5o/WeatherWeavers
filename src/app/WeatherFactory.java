@@ -1,7 +1,7 @@
 package app;
 
+import interface_adapter.Forecast.ForecastViewModel;
 import interface_adapter.Cities.CitiesViewModel;
-import interface_adapter.ForecastViewModel;
 import interface_adapter.GetWeather.GetWeatherViewModel;
 import interface_adapter.GetWeather.HourlyViewModel;
 import interface_adapter.GetWeather.HumidityViewModel;
