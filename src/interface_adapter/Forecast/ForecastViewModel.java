@@ -32,3 +32,6 @@ public class ForecastViewModel extends ViewModel {
         return state;
     }
 }
+
+
+
