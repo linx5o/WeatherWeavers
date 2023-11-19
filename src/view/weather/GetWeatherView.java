@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.time.LocalTime;
 
 import app.ImportFont;
 import interface_adapter.GetWeather.GetWeatherController;
@@ -34,6 +35,8 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
     public GetWeatherView(GetWeatherController controller, GetWeatherViewModel getWeatherViewModel) {
         this.controller = controller;
         this.getWeatherViewModel = getWeatherViewModel;
+
+        controller.execute(LocalTime.now().toString());
         getWeatherViewModel.addPropertyChangeListener(this);
 
         GetWeatherState state = getWeatherViewModel.getState();
