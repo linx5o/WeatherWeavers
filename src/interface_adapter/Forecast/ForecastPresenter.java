@@ -6,20 +6,18 @@ import use_case.forecast.ForecastOutputData;
 
 public class ForecastPresenter implements ForecastOutputBoundary {
     private final ForecastViewModel forcastViewModel;
-    private ViewManagerModel viewManagerModel;
 
     public ForecastPresenter(ForecastViewModel forecastViewModel) {
         this.forcastViewModel = forecastViewModel;
-        this.viewManagerModel = viewManagerModel;
     }
 
     @Override
     public void prepareInformationForecast(ForecastOutputData forecast) {
-
+        // TODO - implement
     }
 
     @Override
     public void prepareForecast(ForecastOutputData forecast) {
-
+        // TODO - implement
     }
 }
