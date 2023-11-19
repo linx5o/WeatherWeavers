@@ -18,7 +18,7 @@ import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
 import view.ViewManager;
 import view.Weather.WeatherView;
-import interface_adapter.ForecastViewModel;
+import interface_adapter.Forecast.ForecastViewModel;
 import interface_adapter.Search.SearchViewModel;
 import interface_adapter.Sidebar.SidebarViewModel;
 import view.Weather.GetWeatherView;

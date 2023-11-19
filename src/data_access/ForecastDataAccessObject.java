@@ -9,10 +9,8 @@ import java.util.List;
 
 public class ForecastDataAccessObject implements ForecastDataAccessInterface {
     @Override
-    public List<Weather> getForecast(Location location, int days) {
-        ArrayList<Weather> weatherArrayList = new ArrayList<>();
-
-
-        return  weatherArrayList;
+    public List<Weather> getForecast(String city, int days, Boolean isCelsius) {
+        // TODO: implement this method
+        return null;
     }
 }
