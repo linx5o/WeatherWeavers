@@ -76,7 +76,13 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
 
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.insets
+        constraints.insets = new Insets(20,30,20, 0);
+        JPanel temperatureIconPanel = new JPanel();
+        temperatureIconPanel.setLayout(new BoxLayout(temperatureIconPanel, BoxLayout.LINE_AXIS));
+        temperatureIconPanel.add(temperatureIcon);
+        temperatureIcon.setVerticalAlignment(JLabel.CENTER);
+        this.add(temperatureIconPanel, constraints);
+
     }
 
     @Override
