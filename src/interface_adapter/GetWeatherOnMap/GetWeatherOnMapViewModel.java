@@ -1,19 +1,18 @@
-package interface_adapter.Map;
+package interface_adapter.GetWeatherOnMap;
 
 import interface_adapter.ViewModel;
 
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class MapViewModel extends ViewModel {
+public class GetWeatherOnMapViewModel extends ViewModel {
     // TODO
-    private MapState state = new MapState();
+    private GetWeatherOnMapState state = new GetWeatherOnMapState();
 
-    public MapViewModel() {
+    public GetWeatherOnMapViewModel() {
         super("map");
     }
 
-    public void setState(MapState state) {
+    public void setState(GetWeatherOnMapState state) {
         this.state = state;
     }
 
@@ -27,7 +26,7 @@ public class MapViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
-    public MapState getState() {
+    public GetWeatherOnMapState getState() {
         return state;
     }
 }
