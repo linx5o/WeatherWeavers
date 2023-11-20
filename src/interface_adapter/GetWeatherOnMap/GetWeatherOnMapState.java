@@ -1,13 +1,11 @@
-package interface_adapter.Map;
+package interface_adapter.GetWeatherOnMap;
 
-import java.util.List;
-
-public class MapState {
+public class GetWeatherOnMapState {
     private double centerLatitude;
     private double centerLongitude;
 
     // Constructor
-    public MapState() {
+    public GetWeatherOnMapState() {
         // Initialize with default center and zoom level for the map
         this.centerLatitude = 0.0;  // Default latitude (equator)
         this.centerLongitude = 0.0; // Default longitude (Greenwich)
