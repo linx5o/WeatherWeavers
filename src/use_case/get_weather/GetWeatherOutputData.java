@@ -16,8 +16,9 @@ public class GetWeatherOutputData {
     private final String sunset; // first 2 digits are hours, last 2 digits are minutes
     private final String weekDay;
     private final String date;
+    private final Boolean timeFormat;
 
-    public GetWeatherOutputData(Weather weather) {
+    public GetWeatherOutputData(Weather weather, Boolean timeFormat) {
         this.descriptions = weather.getDescriptions();
         this.currentTemp = weather.getCurrentTemp();
         this.highTemp = weather.getHighTemp();
@@ -30,6 +31,7 @@ public class GetWeatherOutputData {
         this.sunset = weather.getSunset();
         this.weekDay = weather.getWeekDay();
         this.date = weather.getDate();
+        this.timeFormat = timeFormat;
     }
 
     public String getDescriptions() {
@@ -78,6 +80,10 @@ public class GetWeatherOutputData {
 
     public String getDate() {
         return this.date;
+    }
+
+    public Boolean getTimeFormat() {
+        return this.timeFormat;
     }
 
 }
