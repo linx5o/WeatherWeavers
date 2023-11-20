@@ -10,9 +10,9 @@ import view.weather.OtherCitiesView;
 public class OtherCitiesUseCaseFactory {
     private OtherCitiesUseCaseFactory() {}
 
-    public static OtherCitiesView create(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
+    public static OtherCitiesView create(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
         try {
-            OtherCitiesController otherCitiesController = createOtherCitiesUseCase(otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject);
+            OtherCitiesController otherCitiesController = createOtherCitiesUseCase(otherCitiesViewModel, otherCitiesDataAccessObject, getSettingsDataAccessObject);
             return new OtherCitiesView(otherCitiesController, otherCitiesViewModel);
         } catch (Exception e) {
             // TODO - better error handling
@@ -21,10 +21,10 @@ public class OtherCitiesUseCaseFactory {
         return null;
     }
 
-    private static OtherCitiesController createOtherCitiesUseCase(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
+    private static OtherCitiesController createOtherCitiesUseCase(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
         OtherCitiesOutputBoundary otherCitiesOutputBoundary = new OtherCitiesPresenter(otherCitiesViewModel);
 
-        OtherCitiesInputBoundary otherCitiesInteractor = new OtherCitiesInteractor(otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject, otherCitiesOutputBoundary);
+        OtherCitiesInputBoundary otherCitiesInteractor = new OtherCitiesInteractor(otherCitiesDataAccessObject, getSettingsDataAccessObject, otherCitiesOutputBoundary);
 
         return new OtherCitiesController(otherCitiesInteractor);
     }
