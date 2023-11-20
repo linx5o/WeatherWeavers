@@ -7,7 +7,7 @@ import interface_adapter.GetWeather.GetWeatherViewModel;
 import interface_adapter.GetWeather.HourlyViewModel;
 import interface_adapter.GetWeather.HumidityViewModel;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
-import interface_adapter.Map.MapViewModel;
+import interface_adapter.GetWeatherOnMap.GetWeatherOnMapViewModel;
 import interface_adapter.Settings.SettingsViewModel;
 import use_case.forecast.ForecastDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
@@ -136,7 +136,7 @@ public class Main {
         ForecastViewModel forecastViewModel = new ForecastViewModel();
 
         CitiesViewModel citiesViewModel = new CitiesViewModel();
-        MapViewModel mapViewModel = new MapViewModel();
+        GetWeatherOnMapViewModel getWeatherOnMapViewModel = new GetWeatherOnMapViewModel();
         SettingsViewModel settingsViewModel = new SettingsViewModel();
 
 
@@ -199,6 +199,7 @@ public class Main {
 
         ViewManagerModel mainContentViewManagerModel = new ViewManagerModel();
         ViewManager mainContentViewManager = new ViewManager(content, cardLayout, mainContentViewManagerModel);
+
 
         WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
         content.add(weatherView, weatherView.viewName);
