@@ -1,5 +1,9 @@
 package view.Weather;
 
+import interface_adapter.GetWeather.OtherCitiesState;
+import interface_adapter.GetWeather.OtherCitiesViewModel;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
