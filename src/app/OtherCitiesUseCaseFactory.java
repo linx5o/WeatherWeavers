@@ -4,7 +4,7 @@ import interface_adapter.GetWeather.OtherCitiesViewModel;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
-import view.Weather.OtherCitiesView;
+import view.weather.OtherCitiesView;
 
 public class OtherCitiesUseCaseFactory {
     private OtherCitiesUseCaseFactory() {}

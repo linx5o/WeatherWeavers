@@ -1,5 +1,9 @@
-package use_case.get_other_cities;
+package data_access;
+
+import use_case.get_other_cities.GetOtherCitiesOutputData;
+
+import java.util.List;
 
 public interface GetOtherCitiesDataAccessInterface {
-    GetOtherCitiesOutputData fetchOtherCityWeather(GetOtherCitesInputData request);
+    GetOtherCitiesOutputData getWeatherForOtherCities(long timestamp, List<String> cityNames);
 }

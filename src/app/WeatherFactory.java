@@ -16,7 +16,7 @@ import use_case.humidity.HumidityDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
 import view.ViewManager;
-import view.Weather.*;
+import view.weather.*;
 
 import javax.swing.*;
 

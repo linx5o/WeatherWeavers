@@ -1,4 +1,4 @@
-package view.Weather;
+package view.weather;
 
 import interface_adapter.GetWeather.OtherCitiesState;
 import interface_adapter.GetWeather.OtherCitiesViewModel;

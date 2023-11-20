@@ -1,9 +1,8 @@
 package app;
 
 import interface_adapter.GetWeather.*;
-import interface_adapter.ViewManagerModel;
 import use_case.get_weather.*;
-import view.Weather.GetWeatherView;
+import view.weather.GetWeatherView;
 
 import javax.swing.*;
 import java.io.IOException;

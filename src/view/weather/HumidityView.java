@@ -1,4 +1,4 @@
-package view.Weather;
+package view.weather;
 
 import interface_adapter.GetWeather.HumidityController;
 import interface_adapter.GetWeather.HumidityState;

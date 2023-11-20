@@ -1,4 +1,4 @@
-package view.Weather;
+package view.weather;
 
 import interface_adapter.Forecast.ForecastController;
 import interface_adapter.Forecast.ForecastState;
