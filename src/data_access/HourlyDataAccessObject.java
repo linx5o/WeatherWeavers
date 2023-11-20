@@ -16,6 +16,7 @@ public class HourlyDataAccessObject implements HourlyDataAccessInterface {
     }
 
     public ArrayList<Integer> getTemps(String city, LocalTime localTime, Boolean celsius) {
-
+        return null;
+        // TODO
     }
 }
