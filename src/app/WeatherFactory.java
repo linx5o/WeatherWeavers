@@ -24,7 +24,7 @@ public class WeatherFactory {
     private WeatherFactory() {}
 
 
-    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessObject getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, MapViewModel mapViewModel, SettingsViewModel settingsViewModel) {
+    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessObject getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, GetWeatherOnMapViewModel mapViewModel, SettingsViewModel settingsViewModel) {
 
         try {
             GetWeatherView getWeatherView = GetWeatherUseCaseFactory.create(getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject);
