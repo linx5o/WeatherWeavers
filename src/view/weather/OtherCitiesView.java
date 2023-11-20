@@ -1,5 +1,6 @@
 package view.weather;
 
+import interface_adapter.GetWeather.OtherCitiesController;
 import interface_adapter.GetWeather.OtherCitiesState;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
 

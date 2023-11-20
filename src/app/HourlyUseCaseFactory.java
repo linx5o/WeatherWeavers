@@ -1,5 +1,7 @@
 package app;
 
+import interface_adapter.GetWeather.HourlyController;
+import interface_adapter.GetWeather.HourlyPresenter;
 import interface_adapter.GetWeather.HourlyViewModel;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.hourly.HourlyDataAccessInterface;

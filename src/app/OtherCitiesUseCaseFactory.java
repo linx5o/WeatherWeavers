@@ -1,5 +1,6 @@
 package app;
 
+import interface_adapter.GetWeather.OtherCitiesController;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
