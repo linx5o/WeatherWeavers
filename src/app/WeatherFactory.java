@@ -1,5 +1,6 @@
 package app;
 
+import data_access.GetSettingsDataAccessObject;
 import interface_adapter.Forecast.ForecastViewModel;
 import interface_adapter.Cities.CitiesViewModel;
 import interface_adapter.GetWeather.GetWeatherViewModel;
@@ -16,14 +17,14 @@ import use_case.humidity.HumidityDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
 import view.ViewManager;
-import view.Weather.*;
+import view.weather.*;
 
 import javax.swing.*;
 
 public class WeatherFactory {
     private WeatherFactory() {}
 
-    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessInterface getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, MapViewModel mapViewModel, SettingsViewModel settingsViewModel) {
+    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessObject getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, MapViewModel mapViewModel, SettingsViewModel settingsViewModel) {
         try {
             GetWeatherView getWeatherView = GetWeatherUseCaseFactory.create(getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject);
             HourlyView hourlyView = HourlyUseCaseFactory.create(hourlyViewModel, hourlyDataAccessObject, getSettingsDataAccessObject);
@@ -31,7 +32,7 @@ public class WeatherFactory {
             OtherCitiesView otherCitiesView = OtherCitiesUseCaseFactory.create(otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject);
             ForecastView forecastView = ForecastUseCaseFactory.create(forecastViewModel, forecastDataAccessObject, getSettingsDataAccessObject);
 
-            return new WeatherView(viewManager, getWeatherView);
+            return new WeatherView(getWeatherView, hourlyView, humidityView, otherCitiesView, forecastView);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not open settings file");
         }

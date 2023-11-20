@@ -1,15 +1,16 @@
 package app;
 
+import interface_adapter.GetWeather.OtherCitiesController;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
-import view.Weather.OtherCitiesView;
+import view.weather.OtherCitiesView;
 
 public class OtherCitiesUseCaseFactory {
     private OtherCitiesUseCaseFactory() {}
 
-    public static OtherCitiesView create(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, GetSettingsDataAccessInterface getSettingsDataAccessObject) {
+    public static OtherCitiesView create(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
         try {
             OtherCitiesController otherCitiesController = createOtherCitiesUseCase(otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject);
             return new OtherCitiesView(otherCitiesController, otherCitiesViewModel);
@@ -20,7 +21,7 @@ public class OtherCitiesUseCaseFactory {
         return null;
     }
 
-    private static OtherCitiesController createOtherCitiesUseCase(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, GetSettingsDataAccessInterface getSettingsDataAccessObject) {
+    private static OtherCitiesController createOtherCitiesUseCase(OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, OtherCitiesSettingsDataAccessInterface getSettingsDataAccessObject) {
         OtherCitiesOutputBoundary otherCitiesOutputBoundary = new OtherCitiesPresenter(otherCitiesViewModel);
 
         OtherCitiesInputBoundary otherCitiesInteractor = new OtherCitiesInteractor(otherCitiesDataAccessObject, otherCitiesListDataAccessObject, getSettingsDataAccessObject, otherCitiesOutputBoundary);

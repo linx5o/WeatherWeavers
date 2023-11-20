@@ -11,5 +11,5 @@ public interface ForecastDataAccessInterface {
      * @param days how many days should forecast have
      * @return list of weather in following days starting from today
      */
-    List<Weather> getForecast(Location location, int days);
+    List<Weather> getForecast(String city, int days, Boolean isCelsius);
 }

@@ -9,8 +9,8 @@ public class ForecastViewModel extends ViewModel {
 
     private ForecastState state = new ForecastState();
 
-    public ForecastViewModel(String viewName) {
-        super(viewName);
+    public ForecastViewModel() {
+        super("forecast");
     }
 
     private final PropertyChangeSupport support =  new PropertyChangeSupport(this);
@@ -32,3 +32,6 @@ public class ForecastViewModel extends ViewModel {
         return state;
     }
 }
+
+
+

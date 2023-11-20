@@ -17,11 +17,8 @@ import use_case.humidity.HumidityDataAccessInterface;
 import use_case.other_cities.OtherCitiesDataAccessInterface;
 import use_case.other_cities.OtherCitiesListDataAccessInterface;
 import view.ViewManager;
-import view.Weather.WeatherView;
-import interface_adapter.ForecastViewModel;
-import interface_adapter.Search.SearchViewModel;
-import interface_adapter.Sidebar.SidebarViewModel;
-import view.Weather.GetWeatherView;
+import view.weather.WeatherView;
+import interface_adapter.Forecast.ForecastViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -146,7 +143,7 @@ public class Main {
 
         // Define Data Access Objects
         GetWeatherDataAccessInterface getWeatherDataAccessObject = new GetWeatherDataAccessObject();
-        GetSettingsDataAccessInterface getSettingsDataAccessObject = new GetSettingsDataAccessObject();
+        GetSettingsDataAccessObject getSettingsDataAccessObject = new GetSettingsDataAccessObject();
         HourlyDataAccessInterface hourlyDataAccessObject = new HourlyDataAccessObject();
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
         OtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
