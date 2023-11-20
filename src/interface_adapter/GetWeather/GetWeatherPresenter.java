@@ -3,6 +3,8 @@ package interface_adapter.GetWeather;
 import use_case.get_weather.GetWeatherOutputBoundary;
 import use_case.get_weather.GetWeatherOutputData;
 
+import javax.swing.*;
+
 public class GetWeatherPresenter implements GetWeatherOutputBoundary {
     private final GetWeatherViewModel getWeatherViewModel;
 
@@ -12,7 +14,16 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
 
     @Override
     public void prepareSuccessView(GetWeatherOutputData getWeatherOutputData) {
-        // TODO
+        GetWeatherState state = getWeatherViewModel.getState();
+        state.setCity(getWeatherOutputData.getCity());
+        state.setDate(getWeatherOutputData.getWeekDay() + ", " + getWeatherOutputData.getDate());
+        if (getWeatherOutputData.getDescriptions().equals("113")) {
+
+            if ()
+
+            state.setDescription("Sunny");
+            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/sunny.png"));
+        }
     }
 
     @Override
