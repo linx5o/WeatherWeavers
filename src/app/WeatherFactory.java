@@ -1,5 +1,6 @@
 package app;
 
+import data_access.GetSettingsDataAccessObject;
 import interface_adapter.Forecast.ForecastViewModel;
 import interface_adapter.Cities.CitiesViewModel;
 import interface_adapter.GetWeather.GetWeatherViewModel;
@@ -23,7 +24,8 @@ import javax.swing.*;
 public class WeatherFactory {
     private WeatherFactory() {}
 
-    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessInterface getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, GetWeatherOnMapViewModel getWeatherOnMapViewModel, SettingsViewModel settingsViewModel) {
+    public static WeatherView create(ViewManager viewManager, GetWeatherViewModel getWeatherViewModel, GetWeatherDataAccessInterface getWeatherDataAccessObject, GetSettingsDataAccessObject getSettingsDataAccessObject, HourlyViewModel hourlyViewModel, HourlyDataAccessInterface hourlyDataAccessObject, HumidityViewModel humidityViewModel, HumidityDataAccessInterface humidityDataAccessObject, OtherCitiesViewModel otherCitiesViewModel, OtherCitiesDataAccessInterface otherCitiesDataAccessObject, OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject, ForecastViewModel forecastViewModel, ForecastDataAccessInterface forecastDataAccessObject, CitiesViewModel citiesViewModel, MapViewModel mapViewModel, SettingsViewModel settingsViewModel) {
+
         try {
             GetWeatherView getWeatherView = GetWeatherUseCaseFactory.create(getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject);
             HourlyView hourlyView = HourlyUseCaseFactory.create(hourlyViewModel, hourlyDataAccessObject, getSettingsDataAccessObject);

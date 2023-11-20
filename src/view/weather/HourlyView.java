@@ -1,5 +1,7 @@
 package view.weather;
 
+import interface_adapter.GetWeather.HourlyController;
+import interface_adapter.GetWeather.HourlyState;
 import interface_adapter.GetWeather.HourlyViewModel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
