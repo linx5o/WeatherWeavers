@@ -36,7 +36,7 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
         this.controller = controller;
         this.getWeatherViewModel = getWeatherViewModel;
 
-        controller.execute(LocalTime.now().toString());
+        this.controller.execute(LocalTime.now().toString());
         getWeatherViewModel.addPropertyChangeListener(this);
 
         GetWeatherState state = getWeatherViewModel.getState();
@@ -73,6 +73,15 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
         this.add(date, constraints);
         date.setFont(ImportFont.getFont("ExtraLight", 14));
         date.setForeground(Color.decode("#FFFFFF"));
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.insets = new Insets(20,30,20, 0);
+        JPanel temperatureIconPanel = new JPanel();
+        temperatureIconPanel.setLayout(new BoxLayout(temperatureIconPanel, BoxLayout.LINE_AXIS));
+        temperatureIconPanel.add(temperatureIcon);
+        temperatureIcon.setVerticalAlignment(JLabel.CENTER);
+        this.add(temperatureIconPanel, constraints);
 
     }
 
