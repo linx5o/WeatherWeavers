@@ -136,7 +136,7 @@ public class Main {
         ForecastViewModel forecastViewModel = new ForecastViewModel();
 
         CitiesViewModel citiesViewModel = new CitiesViewModel();
-        GetWeatherOnMapViewModel getWeatherOnMapViewModel = new GetWeatherOnMapViewModel();
+        GetWeatherOnMapViewModel mapViewModel = new GetWeatherOnMapViewModel();
         SettingsViewModel settingsViewModel = new SettingsViewModel();
 
 
