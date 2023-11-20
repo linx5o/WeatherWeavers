@@ -7,7 +7,7 @@ import use_case.humidity.HumidityDataAccessInterface;
 import use_case.humidity.HumidityInputBoundary;
 import use_case.humidity.HumidityInteractor;
 import use_case.humidity.HumidityOutputBoundary;
-import view.Weather.HumidityView;
+import view.weather.HumidityView;
 
 public class HumidityUseCaseFactory {
     private HumidityUseCaseFactory() {}

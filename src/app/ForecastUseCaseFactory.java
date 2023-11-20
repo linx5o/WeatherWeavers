@@ -8,7 +8,7 @@ import use_case.forecast.ForecastInputBoundary;
 import use_case.forecast.ForecastInteractor;
 import use_case.forecast.ForecastOutputBoundary;
 import use_case.get_weather.GetSettingsDataAccessInterface;
-import view.Weather.ForecastView;
+import view.weather.ForecastView;
 
 public class ForecastUseCaseFactory {
     private ForecastUseCaseFactory() {}
