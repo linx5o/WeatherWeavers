@@ -6,7 +6,7 @@ import use_case.hourly.HourlyDataAccessInterface;
 import use_case.hourly.HourlyInputBoundary;
 import use_case.hourly.HourlyInteractor;
 import use_case.hourly.HourlyOutputBoundary;
-import view.Weather.HourlyView;
+import view.weather.HourlyView;
 
 public class HourlyUseCaseFactory {
     private HourlyUseCaseFactory() {}

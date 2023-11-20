@@ -1,4 +1,4 @@
-package view.Weather;
+package view.weather;
 
 import interface_adapter.GetWeather.HourlyViewModel;
 import javax.swing.*;

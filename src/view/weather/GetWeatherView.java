@@ -1,4 +1,4 @@
-package view.Weather;
+package view.weather;
 
 import javax.swing.*;
 import java.awt.*;
