@@ -14,8 +14,7 @@ import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.get_weather.GetWeatherDataAccessInterface;
 import use_case.hourly.HourlyDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
-import use_case.other_cities.OtherCitiesDataAccessInterface;
-import use_case.other_cities.OtherCitiesListDataAccessInterface;
+import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import view.ViewManager;
 import view.weather.WeatherView;
 import interface_adapter.Forecast.ForecastViewModel;
@@ -146,8 +145,7 @@ public class Main {
         GetSettingsDataAccessObject getSettingsDataAccessObject = new GetSettingsDataAccessObject();
         HourlyDataAccessInterface hourlyDataAccessObject = new HourlyDataAccessObject();
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
-        OtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
-        OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject = new OtherCitiesListDataAccessObject();
+        GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
         ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
 
 
@@ -202,7 +200,7 @@ public class Main {
         ViewManagerModel mainContentViewManagerModel = new ViewManagerModel();
         ViewManager mainContentViewManager = new ViewManager(content, cardLayout, mainContentViewManagerModel);
 
-        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
+        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
         content.add(weatherView, weatherView.viewName);
 
 //
