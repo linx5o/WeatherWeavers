@@ -32,7 +32,8 @@ public class WebPanel {
 
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("URL Viewer");
-            JPanel webPanel = createWebPanel("https://www.google.com/maps");
+//            JPanel webPanel = createWebPanel("https://www.google.com/maps");
+            JPanel webPanel = createWebPanel("File:///Users/williammeng/Desktop/CSC207/IdeaProjects/WeatherWeavers1/src/app/rainviewer-api-example.html");
             frame.add(webPanel);
             frame.setSize(800, 600);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
