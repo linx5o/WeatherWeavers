@@ -143,6 +143,7 @@ public class Main {
         // Define Data Access Objects
         GetWeatherDataAccessInterface getWeatherDataAccessObject = new GetWeatherDataAccessObject();
         GetSettingsDataAccessObject getSettingsDataAccessObject = new GetSettingsDataAccessObject();
+
         HourlyDataAccessInterface hourlyDataAccessObject = new HourlyDataAccessObject();
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
         GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();

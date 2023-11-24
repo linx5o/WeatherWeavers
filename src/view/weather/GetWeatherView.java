@@ -39,35 +39,35 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
 
         this.setPreferredSize(new Dimension(620, 260));
 
-//        this.controller.execute(LocalTime.now().toString());
-//        getWeatherViewModel.addPropertyChangeListener(this);
-//
-        GetWeatherState state = getWeatherViewModel.getState();
-//
-//        this.city.setText(state.getCity());
-//        this.date.setText(state.getDate());
-//        this.temperatureIcon.setIcon(state.getTemperatureIcon());
-//        this.temperature.setText(state.getTemperature());
-//        this.temperatureLabel.setText(state.getDescription());
-//        this.high.setText(state.getHigh());
-//        this.low.setText(state.getLow());
-//        this.wind.setText(state.getWind());
-//        this.rain.setText(state.getRain());
-//        this.sunrise.setText(state.getSunrise());
-//        this.sunset.setText(state.getSunset());
+        this.controller.execute();
+        getWeatherViewModel.addPropertyChangeListener(this);
 
-        ImageIcon icon = new ImageIcon("src/interface_adapter/GetWeather/icons/sunny.png");
-        this.city.setText("Toronto");
-        this.date.setText("Monday, 21 November");
-        this.temperatureIcon.setIcon(icon);
-        this.temperature.setText("8°");
-        this.temperatureLabel.setText("Sunny");
-        this.low.setText("7°");
-        this.high.setText("9°");
-        this.wind.setText("3 KM/H");
-        this.rain.setText("4%");
-        this.sunrise.setText("6:32");
-        this.sunset.setText("18:12");
+        GetWeatherState state = getWeatherViewModel.getState();
+
+        this.city.setText(state.getCity());
+        this.date.setText(state.getDate());
+        this.temperatureIcon.setIcon(state.getTemperatureIcon());
+        this.temperature.setText(state.getTemperature());
+        this.temperatureLabel.setText(state.getDescription());
+        this.high.setText(state.getHigh());
+        this.low.setText(state.getLow());
+        this.wind.setText(state.getWind());
+        this.rain.setText(state.getRain());
+        this.sunrise.setText(state.getSunrise());
+        this.sunset.setText(state.getSunset());
+
+//        ImageIcon icon = new ImageIcon("src/interface_adapter/GetWeather/icons/sunny.png");
+//        this.city.setText("Toronto");
+//        this.date.setText("Monday, 21 November");
+//        this.temperatureIcon.setIcon(icon);
+//        this.temperature.setText("8°");
+//        this.temperatureLabel.setText("Sunny");
+//        this.low.setText("7°");
+//        this.high.setText("9°");
+//        this.wind.setText("3 KM/H");
+//        this.rain.setText("4%");
+//        this.sunrise.setText("6:32");
+//        this.sunset.setText("18:12");
 
         this.setLayout(new GridBagLayout());
         this.setBackground(Color.decode("#0D131D"));

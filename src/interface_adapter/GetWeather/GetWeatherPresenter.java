@@ -4,6 +4,7 @@ import use_case.get_weather.GetWeatherOutputBoundary;
 import use_case.get_weather.GetWeatherOutputData;
 
 import javax.swing.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,8 +22,14 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
     @Override
     public void prepareSuccessView(GetWeatherOutputData getWeatherOutputData) {
         GetWeatherState state = getWeatherViewModel.getState();
-        state.setCity(getWeatherOutputData.getCity());
-        state.setDate(getWeatherOutputData.getWeekDay() + ", " + getWeatherOutputData.getDate());
+        String city = getWeatherOutputData.getCity();
+        int commaIndex = city.indexOf(",");
+        if (commaIndex != -1) {
+            city = city.substring(0, commaIndex);
+        }
+        city = city.substring(0, 1).toUpperCase() + city.substring(1);
+        state.setCity(city);
+        state.setDate(getWeatherOutputData.getWeekDay() + ", " + LocalDate.parse(getWeatherOutputData.getDate()).getDayOfMonth() + " " + LocalDate.parse(getWeatherOutputData.getDate()).getMonth());
 
         if (getWeatherOutputData.getDescriptions().equals("sunny")) {
             state.setDescription("Sunny");
