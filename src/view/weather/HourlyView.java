@@ -4,6 +4,7 @@ import interface_adapter.GetWeather.HourlyController;
 import interface_adapter.GetWeather.HourlyState;
 import interface_adapter.GetWeather.HourlyViewModel;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -21,6 +22,8 @@ public class HourlyView extends JPanel implements ActionListener, PropertyChange
         hourlyViewModel.addPropertyChangeListener(this);
 
         HourlyState state = hourlyViewModel.getState();
+
+        this.setPreferredSize(new Dimension(420, 180));
     }
 
     @Override
