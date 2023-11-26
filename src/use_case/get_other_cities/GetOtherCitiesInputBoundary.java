@@ -1,7 +1,7 @@
 package use_case.get_other_cities;
 
-import java.util.List;
+import java.time.LocalTime;
 
 public interface GetOtherCitiesInputBoundary {
-    void getWeatherInfo(long timestamp);
+    void execute(LocalTime localTime);
 }

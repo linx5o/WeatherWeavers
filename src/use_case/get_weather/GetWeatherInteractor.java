@@ -22,7 +22,7 @@ public class GetWeatherInteractor implements GetWeatherInputBoundary{
         if (weather == null) {
             this.getWeatherPresenter.prepareFailView("Error");
         } else {
-            this.getWeatherPresenter.prepareSuccessView(new GetWeatherOutputData(weather));
+            this.getWeatherPresenter.prepareSuccessView(new GetWeatherOutputData(weather, getSettingsDataAccessObject.getSettings().getTimeFormat()));
         }
 
     }
@@ -33,7 +33,7 @@ public class GetWeatherInteractor implements GetWeatherInputBoundary{
         if (weather == null) {
             this.getWeatherPresenter.prepareFailView("Error");
         } else {
-            this.getWeatherPresenter.prepareSuccessView(new GetWeatherOutputData(weather));
+            this.getWeatherPresenter.prepareSuccessView(new GetWeatherOutputData(weather, getSettingsDataAccessObject.getSettings().getTimeFormat()));
         }
     }
 }

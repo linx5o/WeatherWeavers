@@ -7,21 +7,17 @@ import interface_adapter.GetWeather.GetWeatherViewModel;
 import interface_adapter.GetWeather.HourlyViewModel;
 import interface_adapter.GetWeather.HumidityViewModel;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
-import interface_adapter.Map.MapViewModel;
+import interface_adapter.GetWeatherOnMap.GetWeatherOnMapViewModel;
 import interface_adapter.Settings.SettingsViewModel;
 import use_case.forecast.ForecastDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.get_weather.GetWeatherDataAccessInterface;
 import use_case.hourly.HourlyDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
-import use_case.other_cities.OtherCitiesDataAccessInterface;
-import use_case.other_cities.OtherCitiesListDataAccessInterface;
+import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import view.ViewManager;
-import view.Weather.WeatherView;
+import view.weather.WeatherView;
 import interface_adapter.Forecast.ForecastViewModel;
-import interface_adapter.Search.SearchViewModel;
-import interface_adapter.Sidebar.SidebarViewModel;
-import view.Weather.GetWeatherView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -140,17 +136,17 @@ public class Main {
         ForecastViewModel forecastViewModel = new ForecastViewModel();
 
         CitiesViewModel citiesViewModel = new CitiesViewModel();
-        MapViewModel mapViewModel = new MapViewModel();
+        GetWeatherOnMapViewModel mapViewModel = new GetWeatherOnMapViewModel();
         SettingsViewModel settingsViewModel = new SettingsViewModel();
 
 
         // Define Data Access Objects
         GetWeatherDataAccessInterface getWeatherDataAccessObject = new GetWeatherDataAccessObject();
-        GetSettingsDataAccessInterface getSettingsDataAccessObject = new GetSettingsDataAccessObject();
+        GetSettingsDataAccessObject getSettingsDataAccessObject = new GetSettingsDataAccessObject();
+
         HourlyDataAccessInterface hourlyDataAccessObject = new HourlyDataAccessObject();
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
-        OtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
-        OtherCitiesListDataAccessInterface otherCitiesListDataAccessObject = new OtherCitiesListDataAccessObject();
+        GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
         ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
 
 
@@ -205,7 +201,8 @@ public class Main {
         ViewManagerModel mainContentViewManagerModel = new ViewManagerModel();
         ViewManager mainContentViewManager = new ViewManager(content, cardLayout, mainContentViewManagerModel);
 
-        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, otherCitiesListDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
+
+        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
         content.add(weatherView, weatherView.viewName);
 
 //
