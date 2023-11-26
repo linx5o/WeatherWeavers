@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-21" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="squareup.okhttp3.logging.interceptor" level="project" />
+    <orderEntry type="library" name="json" level="project" />
   </component>
 </module>
