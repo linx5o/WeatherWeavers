@@ -20,15 +20,13 @@ public class OtherCitiesState {
 
     // Inner class to represent weather data for a city
     public static class CityWeather {
-        private String cityName;
-        private double temperature;
-        private int humidity;
-        private String weatherCondition;
+        private String cityName = "";
+        private String temperature = "";
+        private String weatherCondition = "";
 
-        public CityWeather(String cityName, double temperature, int humidity, String weatherCondition) {
+        public CityWeather(String cityName, String temperature, String weatherCondition) {
             this.cityName = cityName;
             this.temperature = temperature;
-            this.humidity = humidity;
             this.weatherCondition = weatherCondition;
         }
 
@@ -41,20 +39,12 @@ public class OtherCitiesState {
             this.cityName = cityName;
         }
 
-        public double getTemperature() {
+        public String getTemperature() {
             return temperature;
         }
 
-        public void setTemperature(double temperature) {
+        public void setTemperature(String temperature) {
             this.temperature = temperature;
-        }
-
-        public int getHumidity() {
-            return humidity;
-        }
-
-        public void setHumidity(int humidity) {
-            this.humidity = humidity;
         }
 
         public String getWeatherCondition() {
