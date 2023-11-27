@@ -4,6 +4,7 @@ import use_case.get_weather.GetWeatherOutputBoundary;
 import use_case.get_weather.GetWeatherOutputData;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -31,15 +32,18 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
         state.setCity(city);
         state.setDate(getWeatherOutputData.getWeekDay() + ", " + LocalDate.parse(getWeatherOutputData.getDate()).getDayOfMonth() + " " + LocalDate.parse(getWeatherOutputData.getDate()).getMonth());
 
-        if (getWeatherOutputData.getDescriptions().equals("sunny")) {
-            state.setDescription("Sunny");
-            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/sunny.png"));
-        } else if (getWeatherOutputData.getDescriptions().equals("clear")) {
-            state.setDescription("Clear");
-            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/clear.png"));
-        } else {
-            state.setDescription("Unknown");
-            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/unknown.png"));
+        String description;
+        String icon;
+        String[] parts = getWeatherOutputData.getDescriptions().split(";");
+
+        description = parts[0];
+        icon = parts[1];
+
+        try {
+            state.setDescription(description);
+            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/" + icon));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Could not open icon file");
         }
 
         state.setTemperature(getWeatherOutputData.getCurrentTemp() + "°");
