@@ -43,6 +43,9 @@ public class HumidityDataAccessObject implements HumidityDataAccessInterface {
                 responseData = responseBody.getJSONArray("response").getJSONObject(0);
                 JSONObject period = responseData.getJSONArray("periods").getJSONObject(0);
                 humidity = period.getDouble("humidity");
+                if (humidity >= 99.5) {
+                    humidity = 99.0;
+                }
                 return new Humidity((int) Math.round(humidity));
             } else {
                 throw new RuntimeException(responseBody.getString("message"));
