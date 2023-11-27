@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface {
     private static final String API_FORECAST = "https://api.aerisapi.com/forecast/";
-    private static final String API_CURRENT = "https://api.aerisapi.com/current/";
+    private static final String API_CONDITIONS = "https://api.aerisapi.com/conditions/";
     // load API_TOKEN from env variable.
     private static final String API_TOKEN = System.getenv("API_TOKEN");
     private static final String API_SECRET = System.getenv("API_SECRET");
@@ -27,8 +27,8 @@ public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface
 
     @Override
     public Weather getCityWeather(String city, String date, Boolean celsius) {
-        System.out.println(API_TOKEN);
-        System.out.println(city);
+//        System.out.println(API_TOKEN);
+//        System.out.println(city);
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
@@ -69,12 +69,12 @@ public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface
                     tempMax = period.getDouble("maxTempF");
                     tempMin = period.getDouble("minTempF");
                 }
-                System.out.println(1);
+//                System.out.println(1);
                 windSpeed = period.getDouble("windSpeedKPH");
                 rainPop = period.getDouble("pop");
                 String sunrise = period.getString("sunriseISO");
                 String sunset = period.getString("sunsetISO");
-                System.out.println(2);
+//                System.out.println(2);
                 sunriseString = sunrise.substring(11, 16);
                 sunsetString = sunset.substring(11, 16);
             } else {
@@ -89,7 +89,7 @@ public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface
             Response response = client2.newCall(request2).execute();
             System.out.println(response);
             JSONObject responseBody = new JSONObject(response.body().string());
-            System.out.println(responseBody);
+//            System.out.println(responseBody);
             if (responseBody.getBoolean("success")) {
                 JSONArray responses2 = responseBody.getJSONArray("response");
                 JSONObject response2 = responses2.getJSONObject(0);
@@ -100,25 +100,20 @@ public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface
                 } else {
                     temp = period2.getDouble("tempF");
                 }
-                System.out.println(3);
-                if (period2.getString("icon").equals("sunny.png")) {
-                    description = "sunny";
-                } else if (period2.getString("icon").equals("clear.png")) {
-                    description = "clear";
-                } else {
-                    description = "unknown";
-                }
+//                System.out.println(3);
+                description = period2.getString("weather") + ";" + period2.getString("icon");
+
             } else {
                 throw new RuntimeException(responseBody.getString("error"));
             }
         } catch (IOException | JSONException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(0);
+//        System.out.println(0);
 
 
 
-        System.out.println(2);
+//        System.out.println(2);
 
 
         return new Weather(description, (int) Math.round(temp), (int) Math.round(tempMax), (int) Math.round(tempMin), city, celsius, (int) Math.round(windSpeed), (int) Math.round(rainPop), sunriseString, sunsetString);

@@ -13,7 +13,7 @@ public class HumidityPresenter implements HumidityOutputBoundary {
     @Override
     public void prepareSuccessView(HumidityOutputData humidityOutputData) {
         HumidityState state = humidityViewModel.getState();
-        state.setHumidity(humidityOutputData.getHumidity().toString());
+        state.setHumidity(humidityOutputData.getHumidity().toString() + "%");
         state.setDescriptions(humidityOutputData.getDescriptions());
         humidityViewModel.setState(state);
         humidityViewModel.firePropertyChanged();

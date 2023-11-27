@@ -175,20 +175,20 @@ public class Main {
 
         // Main Side
         JPanel mainSide = new JPanel(new BorderLayout());
-        mainSide.setPreferredSize(new Dimension(900, 700));
+        mainSide.setPreferredSize(new Dimension(920, 700));
         main.add(mainSide, BorderLayout.CENTER);
 
         // Search Bar
         FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT, 0, 0);
         JPanel search = new JPanel(flowLayout);
-        search.setPreferredSize(new Dimension(900, 80));
+        search.setPreferredSize(new Dimension(920, 80));
         mainSide.add(search, BorderLayout.NORTH);
 
 //        SearchView searchView = SearchUseCaseFactory.create(searchViewModel, citiesViewModel);
 //        search.add(searchView);
 
         JPanel searchPlaceHolder = new JPanel();
-        searchPlaceHolder.setPreferredSize(new Dimension(900, 80));
+        searchPlaceHolder.setPreferredSize(new Dimension(920, 80));
         searchPlaceHolder.setBackground(Color.cyan);
         search.add(searchPlaceHolder);
 
@@ -216,7 +216,7 @@ public class Main {
 //        mainContentViewManagerModel.firePropertyChanged();
 
         JPanel contentPlaceHolder = new JPanel();
-        contentPlaceHolder.setPreferredSize(new Dimension(900, 620));
+        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
         contentPlaceHolder.setBackground(Color.green);
         content.add(contentPlaceHolder);
 

@@ -5,6 +5,7 @@ import interface_adapter.GetWeather.OtherCitiesState;
 import interface_adapter.GetWeather.OtherCitiesViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -22,6 +23,8 @@ public class OtherCitiesView extends JPanel implements ActionListener, PropertyC
         otherCitiesViewModel.addPropertyChangeListener(this);
 
         OtherCitiesState state = otherCitiesViewModel.getState();
+
+        this.setPreferredSize(new Dimension(260, 460));
     }
 
     @Override
