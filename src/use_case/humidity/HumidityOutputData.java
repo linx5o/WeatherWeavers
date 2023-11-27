@@ -3,7 +3,7 @@ package use_case.humidity;
 import entity.Humidity;
 
 public class HumidityOutputData {
-    private final Double humidity;
+    private final Integer humidity;
     private final String descriptions;
 
     public HumidityOutputData(Humidity humidity) {
@@ -11,7 +11,7 @@ public class HumidityOutputData {
         this.descriptions = humidity.getDescriptions();
     }
 
-    public Double getHumidity() {
+    public Integer getHumidity() {
         return humidity;
     }
 
