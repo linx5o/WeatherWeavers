@@ -24,7 +24,6 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        //Font Import
         ImportFont.loadAndRegisterAllFontWeights();
 
         //Create Container
