@@ -47,8 +47,13 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
         state.setLow(getWeatherOutputData.getLowTemp() + "°");
         state.setWind(getWeatherOutputData.getWindSpeed() + " KM/H");
         state.setRain(getWeatherOutputData.getRainPercent() + "%");
-        state.setSunrise(getWeatherOutputData.getSunrise());
-        state.setSunset(getWeatherOutputData.getSunset());
+        if (getWeatherOutputData.getTimeFormat()) {
+            state.setSunrise(LocalTime.parse(getWeatherOutputData.getSunrise()).format(DateTimeFormatter.ofPattern("HH:mm")));
+            state.setSunset(LocalTime.parse(getWeatherOutputData.getSunset()).format(DateTimeFormatter.ofPattern("HH:mm")));
+        } else {
+            state.setSunrise(LocalTime.parse(getWeatherOutputData.getSunrise()).format(DateTimeFormatter.ofPattern("hh:mm a")));
+            state.setSunset(LocalTime.parse(getWeatherOutputData.getSunset()).format(DateTimeFormatter.ofPattern("hh:mm a")));
+        }
     }
 
     @Override
