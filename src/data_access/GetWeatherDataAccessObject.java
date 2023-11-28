@@ -101,13 +101,8 @@ public class GetWeatherDataAccessObject implements GetWeatherDataAccessInterface
                     temp = period2.getDouble("tempF");
                 }
 //                System.out.println(3);
-                if (period2.getString("icon").equals("sunny.png")) {
-                    description = "sunny";
-                } else if (period2.getString("icon").equals("clear.png")) {
-                    description = "clear";
-                } else {
-                    description = "unknown";
-                }
+                description = period2.getString("weather") + ";" + period2.getString("icon");
+
             } else {
                 throw new RuntimeException(responseBody.getString("error"));
             }
