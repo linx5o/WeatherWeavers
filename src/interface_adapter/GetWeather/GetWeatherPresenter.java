@@ -62,6 +62,7 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
 
     @Override
     public void prepareFailView(String error) {
-        // TODO
+        // TODO baby baby baby ohhhh my baby baby baby ohhhhhh my
+
     }
 }
