@@ -3,6 +3,8 @@ package interface_adapter.GetWeather;
 import use_case.humidity.HumidityInputBoundary;
 import use_case.humidity.HumidityInputData;
 
+import java.time.LocalTime;
+
 public class HumidityController {
     final HumidityInputBoundary humidityUseCaseInteractor;
 
@@ -14,5 +16,9 @@ public class HumidityController {
         HumidityInputData humidityInputData = new HumidityInputData(city);
 
         humidityUseCaseInteractor.execute(humidityInputData);
+    }
+
+    public void execute() {
+        humidityUseCaseInteractor.execute(LocalTime.now());
     }
 }
