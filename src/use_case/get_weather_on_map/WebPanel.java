@@ -19,9 +19,6 @@ public class WebPanel {
             webView.getEngine().load(pageURL);
         });
 
-//        WebView webView = new WebView();
-//        webView.getEngine().load(pageURL);
-//        jfxPanel.setScene(new Scene(webView));
 
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
