@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.OtherCities;
 
 import use_case.get_other_cities.GetOtherCitiesInputBoundary;
 import use_case.get_other_cities.GetOtherCitiesInputData;

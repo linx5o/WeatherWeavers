@@ -1,9 +1,9 @@
 package view.weather;
 
 import app.ImportFont;
-import interface_adapter.GetWeather.HumidityController;
-import interface_adapter.GetWeather.HumidityState;
-import interface_adapter.GetWeather.HumidityViewModel;
+import interface_adapter.Humidity.HumidityController;
+import interface_adapter.Humidity.HumidityState;
+import interface_adapter.Humidity.HumidityViewModel;
 import view.RoundedPanel;
 
 import javax.swing.*;

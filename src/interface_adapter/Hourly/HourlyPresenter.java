@@ -1,9 +1,10 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Hourly;
 
+import interface_adapter.Hourly.HourlyState;
+import interface_adapter.Hourly.HourlyViewModel;
 import use_case.hourly.HourlyOutputBoundary;
 import use_case.hourly.HourlyOutputData;
 
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class HourlyPresenter implements HourlyOutputBoundary {

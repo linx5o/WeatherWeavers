@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Hourly;
 
 import use_case.hourly.HourlyInputBoundary;
 import use_case.hourly.HourlyInputData;

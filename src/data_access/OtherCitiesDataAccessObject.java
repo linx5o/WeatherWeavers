@@ -39,7 +39,7 @@ public class OtherCitiesDataAccessObject implements GetOtherCitiesDataAccessInte
                 if (responseBody.getBoolean("success")) {
                     responseData = responseBody.getJSONArray("response").getJSONObject(0);
                     JSONObject period = responseData.getJSONArray("periods").getJSONObject(0);
-                    System.out.println(period);
+//                    System.out.println(period);
                     if (celsius) {
                         weatherList.add(new Weather(
                                 period.getString("weather"),

@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Humidity;
 
 import use_case.humidity.HumidityOutputBoundary;
 import use_case.humidity.HumidityOutputData;
