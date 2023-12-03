@@ -13,14 +13,14 @@ public class GetOtherCitiesOutputData {
             cityWeatherInfo.add(weather.getCity());
             cityWeatherInfo.add(weather.getDescriptions());
             cityWeatherInfo.add(weather.getCurrentTemp().toString());
-            cityWeatherInfo.add(weather.getHighTemp().toString());
-            cityWeatherInfo.add(weather.getLowTemp().toString());
-            cityWeatherInfo.add(weather.getWindSpeed().toString());
-            cityWeatherInfo.add(weather.getRainPercent().toString());
-            cityWeatherInfo.add(weather.getSunrise());
-            cityWeatherInfo.add(weather.getSunset());
-            cityWeatherInfo.add(weather.getWeekDay());
-            cityWeatherInfo.add(weather.getDate());
+//            cityWeatherInfo.add(weather.getHighTemp().toString());
+//            cityWeatherInfo.add(weather.getLowTemp().toString());
+//            cityWeatherInfo.add(weather.getWindSpeed().toString());
+//            cityWeatherInfo.add(weather.getRainPercent().toString());
+//            cityWeatherInfo.add(weather.getSunrise());
+//            cityWeatherInfo.add(weather.getSunset());
+//            cityWeatherInfo.add(weather.getWeekDay());
+//            cityWeatherInfo.add(weather.getDate());
             this.citiesWeatherInfo.add(cityWeatherInfo);
         }
     }
