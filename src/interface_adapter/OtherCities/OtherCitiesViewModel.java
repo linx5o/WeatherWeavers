@@ -1,8 +1,8 @@
-package interface_adapter.GetWeather;
+package interface_adapter.OtherCities;
 
+import interface_adapter.OtherCities.OtherCitiesState;
 import interface_adapter.ViewModel;
 
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class OtherCitiesViewModel extends ViewModel {

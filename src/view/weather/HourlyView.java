@@ -1,9 +1,9 @@
 package view.weather;
 
 import app.ImportFont;
-import interface_adapter.GetWeather.HourlyController;
-import interface_adapter.GetWeather.HourlyState;
-import interface_adapter.GetWeather.HourlyViewModel;
+import interface_adapter.Hourly.HourlyController;
+import interface_adapter.Hourly.HourlyState;
+import interface_adapter.Hourly.HourlyViewModel;
 import view.RoundedPanel;
 
 import javax.swing.*;

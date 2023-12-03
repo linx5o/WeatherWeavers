@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Hourly;
 
 
 import java.time.LocalTime;
