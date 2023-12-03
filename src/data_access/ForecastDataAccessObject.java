@@ -39,10 +39,11 @@ public class ForecastDataAccessObject implements ForecastDataAccessInterface {
 
         try {
             Response response = client.newCall(request).execute();
+            System.out.println(response);
             responseData = new JSONObject(response.body().string());
             if (responseData.getBoolean("success")) {
                 JSONArray responseArray = responseData.getJSONArray("response").getJSONObject(0).getJSONArray("periods");
-                System.out.println(responseArray);
+//                System.out.println(responseArray);
                 for (int i = 0; i < responseArray.length(); i++) {
                     JSONObject period = responseArray.getJSONObject(i);
                     if (isCelsius) {
@@ -78,7 +79,7 @@ public class ForecastDataAccessObject implements ForecastDataAccessInterface {
             throw new RuntimeException(e);
         }
 
-        System.out.println(weatherList);
+//        System.out.println(weatherList);
         return weatherList;
     }
 }
