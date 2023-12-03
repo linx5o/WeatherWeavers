@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.OtherCities;
 
 import java.util.ArrayList;
 import java.util.List;

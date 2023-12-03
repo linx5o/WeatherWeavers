@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.OtherCities;
 
 import org.jetbrains.annotations.NotNull;
 import use_case.get_other_cities.GetOtherCitiesOutputBoundary;

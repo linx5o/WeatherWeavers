@@ -1,9 +1,9 @@
 package view.weather;
 
 import app.ImportFont;
-import interface_adapter.GetWeather.OtherCitiesController;
-import interface_adapter.GetWeather.OtherCitiesState;
-import interface_adapter.GetWeather.OtherCitiesViewModel;
+import interface_adapter.OtherCities.OtherCitiesController;
+import interface_adapter.OtherCities.OtherCitiesState;
+import interface_adapter.OtherCities.OtherCitiesViewModel;
 import view.RoundedPanel;
 
 import javax.swing.*;

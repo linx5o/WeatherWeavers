@@ -1,8 +1,8 @@
 package app;
 
-import interface_adapter.GetWeather.HumidityController;
-import interface_adapter.GetWeather.HumidityPresenter;
-import interface_adapter.GetWeather.HumidityViewModel;
+import interface_adapter.Humidity.HumidityController;
+import interface_adapter.Humidity.HumidityPresenter;
+import interface_adapter.Humidity.HumidityViewModel;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
 import use_case.humidity.HumidityInputBoundary;

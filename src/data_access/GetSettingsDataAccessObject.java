@@ -17,6 +17,9 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
     public Settings getSettings() {
         ArrayList<String> savedCities = new ArrayList<>();
         savedCities.add("ottawa,ca");
+        savedCities.add("toronto,ca");
+        savedCities.add("montreal,ca");
+        savedCities.add("vancouver,ca");
         return new Settings(true, true, true, "jasonville, in", savedCities);
     }
 }

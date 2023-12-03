@@ -1,8 +1,8 @@
 package app;
 
-import interface_adapter.GetWeather.OtherCitiesController;
-import interface_adapter.GetWeather.OtherCitiesPresenter;
-import interface_adapter.GetWeather.OtherCitiesViewModel;
+import interface_adapter.OtherCities.OtherCitiesController;
+import interface_adapter.OtherCities.OtherCitiesPresenter;
+import interface_adapter.OtherCities.OtherCitiesViewModel;
 import use_case.get_other_cities.*;
 import view.weather.OtherCitiesView;
 
