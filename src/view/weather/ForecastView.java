@@ -63,7 +63,7 @@ public class ForecastView extends RoundedPanel implements ActionListener, Proper
         this.setPreferredSize(new Dimension(900, 120));
         this.setBackground(Color.decode("#222B3A"));
 
-//        this.controller.execute();
+        this.controller.execute(9, true);
         forecastViewModel.addPropertyChangeListener(this);
 
         ForecastState state = forecastViewModel.getState();
@@ -104,9 +104,9 @@ public class ForecastView extends RoundedPanel implements ActionListener, Proper
         this.forecast9Temp.setText(state.getForecast9Temp());
         this.forecast9Icon.setIcon(state.getForecast9Icon());
 
-        this.forecast1.setText("Wed");
-        this.forecast1Temp.setText("23° / 27°");
-        this.forecast1Icon.setIcon(new ImageIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/" + "sunny.png").getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+//        this.forecast1.setText("Wed");
+//        this.forecast1Temp.setText("23° / 27°");
+//        this.forecast1Icon.setIcon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + "sunny.png").getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);

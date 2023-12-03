@@ -1,31 +1,52 @@
 package interface_adapter.Forecast;
 
-import interface_adapter.ViewManagerModel;
 import use_case.forecast.ForecastOutputBoundary;
 import use_case.forecast.ForecastOutputData;
 
 import javax.swing.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class  ForecastPresenter implements ForecastOutputBoundary {
-    private final ForecastViewModel forcastViewModel;
+    private final ForecastViewModel forecastViewModel;
 
     public ForecastPresenter(ForecastViewModel forecastViewModel) {
-        this.forcastViewModel = forecastViewModel;
+        this.forecastViewModel = forecastViewModel;
     }
 
     @Override
     public void prepareInformationForecast(ForecastOutputData forecast) {
-        ForecastState state = forcastViewModel.getState();
+        ForecastState state = forecastViewModel.getState();
 
-        state.setForecast1(forecast.getWeathers().get(0).getWeekDay());
-        state.setForecast2(forecast.getWeathers().get(1).getWeekDay());
-        state.setForecast3(forecast.getWeathers().get(2).getWeekDay());
-        state.setForecast4(forecast.getWeathers().get(3).getWeekDay());
-        state.setForecast5(forecast.getWeathers().get(4).getWeekDay());
-        state.setForecast6(forecast.getWeathers().get(5).getWeekDay());
-        state.setForecast7(forecast.getWeathers().get(6).getWeekDay());
-        state.setForecast8(forecast.getWeathers().get(7).getWeekDay());
-        state.setForecast9(forecast.getWeathers().get(8).getWeekDay());
+        state.setForecast1(LocalDateTime.parse(forecast.getWeathers().get(0).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast2(LocalDateTime.parse(forecast.getWeathers().get(1).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast3(LocalDateTime.parse(forecast.getWeathers().get(2).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast4(LocalDateTime.parse(forecast.getWeathers().get(3).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast5(LocalDateTime.parse(forecast.getWeathers().get(4).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast6(LocalDateTime.parse(forecast.getWeathers().get(5).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast7(LocalDateTime.parse(forecast.getWeathers().get(6).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast8(LocalDateTime.parse(forecast.getWeathers().get(7).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
+        state.setForecast9(LocalDateTime.parse(forecast.getWeathers().get(8).getSunrise(), DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+                .getDayOfWeek()
+                .getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
 
         state.setForecast1Temp(forecast.getWeathers().get(0).getLowTemp().toString() + "° / " + forecast.getWeathers().get(0).getHighTemp().toString() + "°");
         state.setForecast2Temp(forecast.getWeathers().get(1).getLowTemp().toString() + "° / " + forecast.getWeathers().get(1).getHighTemp().toString() + "°");
@@ -38,15 +59,15 @@ public class  ForecastPresenter implements ForecastOutputBoundary {
         state.setForecast9Temp(forecast.getWeathers().get(8).getLowTemp().toString() + "° / " + forecast.getWeathers().get(8).getHighTemp().toString() + "°");
 
         try {
-            state.setForecast1Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(0).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast2Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(1).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast3Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(2).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast4Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(3).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast5Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(4).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast6Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(5).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast7Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(6).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast8Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(7).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
-            state.setForecast9Icon(new ImageIcon(new ImageIcon("src/interface_adapter/Forecast/icons/" + forecast.getWeathers().get(8).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast1Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(0).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast2Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(1).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast3Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(2).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast4Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(3).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast5Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(4).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast6Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(5).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast7Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(6).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast8Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(7).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+            state.setForecast9Icon(new ImageIcon(new ImageIcon("src/interface_adapter/icons/" + forecast.getWeathers().get(8).getDescriptions().split(";")[1]).getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not open icon file");
         }

@@ -11,8 +11,7 @@ public class ForecastController {
         this.forecastUseCaseInteractor = forecastUseCaseInteractor;
     }
 
-    public void execute(String city, int days, boolean information){
-        ForecastInputData forecastInputData = new ForecastInputData(city, days, information);
-        forecastUseCaseInteractor.execute(forecastInputData);
+    public void execute(int days, boolean information){
+        forecastUseCaseInteractor.execute(days, information);
     }
 }

@@ -16,7 +16,7 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
     @Override
     public Settings getSettings() {
         ArrayList<String> savedCities = new ArrayList<>();
-        savedCities.add("ottawa,ca");
+//        savedCities.add("ottawa,ca");
         return new Settings(true, true, true, "jasonville, in", savedCities);
     }
 }
