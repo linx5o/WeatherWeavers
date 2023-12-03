@@ -34,7 +34,7 @@ public class WeatherView extends JPanel {
         c.gridx = 0;
         c.gridy = 2;
         c.gridwidth = 3;
-        c.insets = new Insets(20, 0, 0, 0);
+        c.insets = new Insets(20, 0, 20, 0);
         this.add(forecastView, c);
 
         c.gridx = 2;
