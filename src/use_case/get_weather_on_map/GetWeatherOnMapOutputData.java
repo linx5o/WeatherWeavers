@@ -1,15 +1,15 @@
 package use_case.get_weather_on_map;
 
-import entity.Weather;
+import javax.swing.*;
 
 public class GetWeatherOnMapOutputData {
-    private final Weather weather;
+    private final JPanel panel;
 
-    public GetWeatherOnMapOutputData(Weather weather) {
-        this.weather = weather;
+    public GetWeatherOnMapOutputData(JPanel panel) {
+        this.panel = panel;
     }
 
-    public Weather getWeather() {
-        return weather;
+    public JPanel getPanel() {
+        return panel;
     }
 }

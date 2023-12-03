@@ -12,7 +12,7 @@ public class OtherCitiesController {
         this.getOtherCitiesInteractor = getOtherCitiesInteractor;
     }
 
-    public void execute(LocalTime localTime){
-        getOtherCitiesInteractor.execute(localTime);
+    public void execute(){
+        getOtherCitiesInteractor.execute(LocalTime.now());
     }
 }

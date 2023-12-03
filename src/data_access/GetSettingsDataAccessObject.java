@@ -15,6 +15,8 @@ import java.util.List;
 public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface {
     @Override
     public Settings getSettings() {
-        return new Settings(true, true, true, "toronto,ca", new ArrayList<>());
+        ArrayList<String> savedCities = new ArrayList<>();
+        savedCities.add("ottawa,ca");
+        return new Settings(true, true, true, "jasonville, in", savedCities);
     }
 }
