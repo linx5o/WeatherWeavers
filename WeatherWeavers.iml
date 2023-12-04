@@ -13,5 +13,6 @@
     <orderEntry type="library" name="junit" level="project" />
     <orderEntry type="library" name="openjfx.javafx.swing" level="project" />
     <orderEntry type="library" name="openjfx.javafx.web" level="project" />
+    <orderEntry type="library" name="apache.httpcomponents.fluent.hc" level="project" />
   </component>
 </module>

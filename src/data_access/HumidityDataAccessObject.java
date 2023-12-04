@@ -47,9 +47,9 @@ public class HumidityDataAccessObject implements HumidityDataAccessInterface {
                     humidity = 99.0;
                 }
                 return new Humidity((int) Math.round(humidity));
-            } else {
-                throw new RuntimeException(responseBody.getString("message"));
-            }
+                } else {
+                    throw new RuntimeException(responseBody.getString("message"));
+                }
         } catch (IOException | JSONException e) {
             throw new RuntimeException(e);
         }
