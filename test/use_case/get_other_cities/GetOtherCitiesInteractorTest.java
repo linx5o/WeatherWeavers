@@ -2,14 +2,14 @@ package use_case.get_other_cities;
 
 import entity.Settings;
 import entity.Weather;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class GetOtherCitiesInteractorTest {
 
@@ -20,7 +20,7 @@ class GetOtherCitiesInteractorTest {
     private List<Weather> testWeatherData;
 
 
-    @BeforeEach
+    @Before
     void setUp() {
         // 创建并配置settingsDataAccess以返回预设的设置数据
         settingsDataAccess = new OtherCitiesSettingsDataAccessInterface() {
@@ -64,7 +64,7 @@ class GetOtherCitiesInteractorTest {
                 // 检查两件事：输出数据是否正确，以及天气信息是否如预期创建
                 assertNotNull(response);
                 ArrayList<ArrayList<String>> weatherData = response.getCitiesWeatherInfo();
-                assertFalse(weatherData.isEmpty(), "天气数据列表不应为空");
+                assertFalse("The list of weathers should not be empty", weatherData.isEmpty());
                 ArrayList<String> firstCityWeather = weatherData.get(0);
                 assertEquals("City1,ca", firstCityWeather.get(0));
             }
