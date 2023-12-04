@@ -1,5 +1,6 @@
 package data_access;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -12,6 +13,7 @@ public class ForecastDataAccessObjectTest {
 
     public ForecastDataAccessObject forecastDataAccessObject;
 
+    @Before
     public void setUp() {
         this.forecastDataAccessObject = new ForecastDataAccessObject();
     }

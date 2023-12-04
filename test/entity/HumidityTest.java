@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -11,7 +12,7 @@ public class HumidityTest {
     private String descriptions;
     private Integer humidity;
 
-    @Test
+    @Before
     public void setUp() {
         descriptions = "Comfortable";
         humidity = 50;
