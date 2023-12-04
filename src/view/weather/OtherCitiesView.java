@@ -42,6 +42,21 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
     private final JLabel city6WeatherConditionLabel = new JLabel();
     private final JLabel city6TemperatureLabel = new JLabel();
 
+    private final RoundedPanel city1 = new RoundedPanel(20);
+    private final RoundedPanel city2 = new RoundedPanel(20);
+    private final RoundedPanel city3 = new RoundedPanel(20);
+    private final RoundedPanel city4 = new RoundedPanel(20);
+    private final RoundedPanel city5 = new RoundedPanel(20);
+    private final RoundedPanel city6 = new RoundedPanel(20);
+
+    private final JPanel city1Filler = new JPanel();
+    private final JPanel city2Filler = new JPanel();
+    private final JPanel city3Filler = new JPanel();
+    private final JPanel city4Filler = new JPanel();
+    private final JPanel city5Filler = new JPanel();
+    private final JPanel city6Filler = new JPanel();
+
+
     private final OtherCitiesController controller;
     private final OtherCitiesViewModel otherCitiesViewModel;
 
@@ -114,6 +129,8 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         this.viewMapButton.setOpaque(false);
         this.viewMapButton.setContentAreaFilled(false);
         this.viewMapButton.setBorderPainted(false);
+        this.viewMapButton.setFocusPainted(false);
+//        this.viewMapButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10));
         this.viewMapButton.setPreferredSize(new Dimension(60, 20));
         this.viewMapButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
@@ -138,7 +155,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city1InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city1Info.add(this.city1WeatherConditionLabel, city1InfoConstraints);
 
-        RoundedPanel city1 = new RoundedPanel(20);
         GroupLayout layout = new GroupLayout(city1);
         city1.setLayout(layout);
         layout.setAutoCreateGaps(true);
@@ -196,7 +212,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city2InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city2Info.add(this.city2WeatherConditionLabel, city2InfoConstraints);
 
-        RoundedPanel city2 = new RoundedPanel(20);
         GroupLayout layout2 = new GroupLayout(city2);
         city2.setLayout(layout2);
         layout2.setAutoCreateGaps(true);
@@ -253,7 +268,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city3InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city3Info.add(this.city3WeatherConditionLabel, city3InfoConstraints);
 
-        RoundedPanel city3 = new RoundedPanel(20);
         GroupLayout layout3 = new GroupLayout(city3);
         city3.setLayout(layout3);
         layout3.setAutoCreateGaps(true);
@@ -309,7 +323,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city4InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city4Info.add(this.city4WeatherConditionLabel, city4InfoConstraints);
 
-        RoundedPanel city4 = new RoundedPanel(20);
         GroupLayout layout4 = new GroupLayout(city4);
         city4.setLayout(layout4);
         layout4.setAutoCreateGaps(true);
@@ -366,7 +379,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city5InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city5Info.add(this.city5WeatherConditionLabel, city5InfoConstraints);
 
-        RoundedPanel city5 = new RoundedPanel(20);
         GroupLayout layout5 = new GroupLayout(city5);
         city5.setLayout(layout5);
         layout5.setAutoCreateGaps(true);
@@ -422,7 +434,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         city6InfoConstraints.insets = new Insets(0, 10, 10, 0);
         city6Info.add(this.city6WeatherConditionLabel, city6InfoConstraints);
 
-        RoundedPanel city6 = new RoundedPanel(20);
         GroupLayout layout6 = new GroupLayout(city6);
         city6.setLayout(layout6);
         layout6.setAutoCreateGaps(true);
@@ -463,7 +474,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 7;
 
-        JPanel city1Filler = new JPanel();
         city1Filler.setOpaque(false);
         city1Filler.setMinimumSize(new Dimension(240, 60));
         city1Filler.setVisible(false);
@@ -471,7 +481,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 8;
 
-        JPanel city2Filler = new JPanel();
         city2Filler.setOpaque(false);
         city2Filler.setMinimumSize(new Dimension(240, 60));
         city2Filler.setVisible(false);
@@ -479,7 +488,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 9;
 
-        JPanel city3Filler = new JPanel();
         city3Filler.setOpaque(false);
         city3Filler.setMinimumSize(new Dimension(240, 60));
         city3Filler.setVisible(false);
@@ -487,7 +495,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 10;
 
-        JPanel city4Filler = new JPanel();
         city4Filler.setOpaque(false);
         city4Filler.setMinimumSize(new Dimension(240, 60));
         city4Filler.setVisible(false);
@@ -495,7 +502,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 11;
 
-        JPanel city5Filler = new JPanel();
         city5Filler.setOpaque(false);
         city5Filler.setMinimumSize(new Dimension(240, 60));
         city5Filler.setVisible(false);
@@ -503,7 +509,6 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
         constraints.gridy = 12;
 
-        JPanel city6Filler = new JPanel();
         city6Filler.setOpaque(false);
         city6Filler.setMinimumSize(new Dimension(240, 60));
         city6Filler.setVisible(false);
@@ -744,6 +749,8 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 //        this.city6TemperatureLabel.setForeground(Color.decode("#FFFFFF"));
 //
 //        this.add(city6, constraints);
+
+        this.viewMapButton.addActionListener(this);
     }
 
     @Override
@@ -755,31 +762,59 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals(viewName)) {
-            OtherCitiesState state = otherCitiesViewModel.getState();
-            this.city1NameLabel.setText(state.getOtherCitiesWeather().get(0).getCityName());
-            this.city1WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(0).getWeatherCondition());
-            this.city1TemperatureLabel.setText(state.getOtherCitiesWeather().get(0).getTemperature());
+        otherCitiesViewModel.removePropertyChangeListener(this);
+        this.controller.execute();
+        otherCitiesViewModel.addPropertyChangeListener(this);
 
-            this.city2NameLabel.setText(state.getOtherCitiesWeather().get(1).getCityName());
-            this.city2WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(1).getWeatherCondition());
-            this.city2TemperatureLabel.setText(state.getOtherCitiesWeather().get(1).getTemperature());
+        OtherCitiesState state = otherCitiesViewModel.getState();
 
-            this.city3NameLabel.setText(state.getOtherCitiesWeather().get(2).getCityName());
-            this.city3WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(2).getWeatherCondition());
-            this.city3TemperatureLabel.setText(state.getOtherCitiesWeather().get(2).getTemperature());
+        this.city1NameLabel.setText(state.getOtherCitiesWeather().get(0).getCityName());
+        this.city1WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(0).getWeatherCondition());
+        this.city1TemperatureLabel.setText(state.getOtherCitiesWeather().get(0).getTemperature());
 
-            this.city4NameLabel.setText(state.getOtherCitiesWeather().get(3).getCityName());
-            this.city4WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(3).getWeatherCondition());
-            this.city4TemperatureLabel.setText(state.getOtherCitiesWeather().get(3).getTemperature());
+        this.city2NameLabel.setText(state.getOtherCitiesWeather().get(1).getCityName());
+        this.city2WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(1).getWeatherCondition());
+        this.city2TemperatureLabel.setText(state.getOtherCitiesWeather().get(1).getTemperature());
 
-            this.city5NameLabel.setText(state.getOtherCitiesWeather().get(4).getCityName());
-            this.city5WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(4).getWeatherCondition());
-            this.city5TemperatureLabel.setText(state.getOtherCitiesWeather().get(4).getTemperature());
+        this.city3NameLabel.setText(state.getOtherCitiesWeather().get(2).getCityName());
+        this.city3WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(2).getWeatherCondition());
+        this.city3TemperatureLabel.setText(state.getOtherCitiesWeather().get(2).getTemperature());
 
-            this.city6NameLabel.setText(state.getOtherCitiesWeather().get(5).getCityName());
-            this.city6WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(5).getWeatherCondition());
-            this.city6TemperatureLabel.setText(state.getOtherCitiesWeather().get(5).getTemperature());
+        this.city4NameLabel.setText(state.getOtherCitiesWeather().get(3).getCityName());
+        this.city4WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(3).getWeatherCondition());
+        this.city4TemperatureLabel.setText(state.getOtherCitiesWeather().get(3).getTemperature());
+
+        this.city5NameLabel.setText(state.getOtherCitiesWeather().get(4).getCityName());
+        this.city5WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(4).getWeatherCondition());
+        this.city5TemperatureLabel.setText(state.getOtherCitiesWeather().get(4).getTemperature());
+
+        this.city6NameLabel.setText(state.getOtherCitiesWeather().get(5).getCityName());
+        this.city6WeatherConditionLabel.setText(state.getOtherCitiesWeather().get(5).getWeatherCondition());
+        this.city6TemperatureLabel.setText(state.getOtherCitiesWeather().get(5).getTemperature());
+
+        if (city1NameLabel.getText().isEmpty()) {
+            city1.setVisible(false);
+            city1Filler.setVisible(true);
+        }
+        if (city2NameLabel.getText().isEmpty()) {
+            city2.setVisible(false);
+            city2Filler.setVisible(true);
+        }
+        if (city3NameLabel.getText().isEmpty()) {
+            city3.setVisible(false);
+            city3Filler.setVisible(true);
+        }
+        if (city4NameLabel.getText().isEmpty()) {
+            city4.setVisible(false);
+            city4Filler.setVisible(true);
+        }
+        if (city5NameLabel.getText().isEmpty()) {
+            city5.setVisible(false);
+            city5Filler.setVisible(true);
+        }
+        if (city6NameLabel.getText().isEmpty()) {
+            city6.setVisible(false);
+            city6Filler.setVisible(true);
         }
     }
 }

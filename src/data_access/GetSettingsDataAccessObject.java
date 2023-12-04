@@ -9,6 +9,7 @@ import use_case.get_other_cities.OtherCitiesSettingsDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.get_weather_on_map.GetWeatherOnMapSettingDataAccessInterface;
 import use_case.hourly.HourlySettingsDataAccessInterface;
+import use_case.humidity.HumiditySettingDataAccessInterface;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,7 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface, GetWeatherOnMapSettingDataAccessInterface {
+
+public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface, GetWeatherOnMapSettingDataAccessInterface, HumiditySettingDataAccessInterface {
     @Override
     public Settings getSettings() {
         File file = new File("src/app/userpref.txt");
@@ -60,6 +62,7 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
         savedCities.add("vancouver,ca");
         savedCities.add("toronto,ca");
         savedCities.add("calgary,ca");
+
         return new Settings(true, true, true, "toronto,ca", savedCities);
     }
 }

@@ -8,8 +8,8 @@ import java.time.LocalTime;
 public class HumidityInteractor implements HumidityInputBoundary{
     final HumidityDataAccessInterface humidityDataAccessObject;
     final HumidityOutputBoundary humidityPresenter;
-    final GetSettingsDataAccessInterface getSettingsDataAccessObject;
-    public HumidityInteractor(HumidityDataAccessInterface humidityDataAccessObject, HumidityOutputBoundary humidityOutputBoundary, GetSettingsDataAccessInterface getSettingsDataAccessObject) {
+    final HumiditySettingDataAccessInterface getSettingsDataAccessObject;
+    public HumidityInteractor(HumidityDataAccessInterface humidityDataAccessObject, HumidityOutputBoundary humidityOutputBoundary, HumiditySettingDataAccessInterface getSettingsDataAccessObject) {
         this.humidityDataAccessObject = humidityDataAccessObject;
         this.humidityPresenter = humidityOutputBoundary;
         this.getSettingsDataAccessObject = getSettingsDataAccessObject;

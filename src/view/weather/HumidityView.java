@@ -81,9 +81,12 @@ public class HumidityView extends RoundedPanel implements ActionListener, Proper
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+//        System.out.println("HumidityView propertyChange");
+        humidityViewModel.removePropertyChangeListener(this);
+        controller.execute();
+        humidityViewModel.addPropertyChangeListener(this);
         HumidityState state = humidityViewModel.getState();
-
-        this.humidityLabel.setText(state.getHumidity());
-        this.humidityDescription.setText(state.getDescriptions());
+        humidityValue.setText(state.getHumidity());
+        humidityDescription.setText(state.getDescriptions());
     }
 }
