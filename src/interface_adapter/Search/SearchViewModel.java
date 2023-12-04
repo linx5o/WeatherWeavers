@@ -18,5 +18,12 @@ public class SearchViewModel extends ViewModel{
     public void addPropertyChangeListener(PropertyChangeListener listener) {
 
     }
+
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+
+    }
     // TODO
+
+
 }
