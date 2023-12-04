@@ -54,6 +54,8 @@ public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAcces
             try {
                 String htmlContent = new String(Files.readAllBytes(Paths.get(pageURL)));
 
+                // reason why honda1 and honda2 is because the html file has honda1 and honda2 has to be unique so that
+                // it doesn't replace other words that are the same
                 htmlContent = htmlContent.replace("honda1", latitude);
                 htmlContent = htmlContent.replace("honda2", longitude);
 
