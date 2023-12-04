@@ -1,4 +1,4 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Humidity;
 
 public class HumidityState {
     private String humidity = null;

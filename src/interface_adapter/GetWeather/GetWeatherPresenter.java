@@ -41,7 +41,7 @@ public class GetWeatherPresenter implements GetWeatherOutputBoundary {
 
         try {
             state.setDescription(description);
-            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/GetWeather/icons/" + icon));
+            state.setTemperatureIcon(new ImageIcon("src/interface_adapter/icons/" + icon));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Could not open icon file");
         }

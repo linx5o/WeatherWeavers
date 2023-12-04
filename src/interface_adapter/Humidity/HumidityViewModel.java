@@ -1,8 +1,7 @@
-package interface_adapter.GetWeather;
+package interface_adapter.Humidity;
 
 import interface_adapter.ViewModel;
 
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class HumidityViewModel extends ViewModel{
