@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class SetCityInteractorTest {
@@ -18,10 +19,12 @@ public class SetCityInteractorTest {
     private SetCityDataAccessInterface setCityDataAccessObjectFail5;
     private SetCityOutputBoundary setCityPresenter;
     private Settings settings;
+    private ArrayList<String> cities = new ArrayList<String>();
 
     @Before
     public void setUp() {
         settings = new Settings(true, true, true, "london,ca", new ArrayList<String>());
+        cities.add("london,ca");
         setCityDataAccessObject = new SetCityDataAccessInterface() {
             @Override
             public int addCity(String city) {
@@ -125,6 +128,8 @@ public class SetCityInteractorTest {
     public void testSetCityInteractor() {
         SetCityInputBoundary setCityInteractor = new SetCityInteractor(setCityPresenter, setCityDataAccessObject);
         SetCityInputData setCityInputData = new SetCityInputData("london,ca");
+        SetCityOutputData setCityOutputData = new SetCityOutputData(setCityDataAccessObject.getSettings().getSavedCities());
+        assertEquals(setCityOutputData.getCity(), cities);
         setCityInteractor.execute(setCityInputData);
     }
 
