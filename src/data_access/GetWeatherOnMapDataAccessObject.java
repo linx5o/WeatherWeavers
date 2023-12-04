@@ -70,6 +70,7 @@ public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAcces
         panel.setLayout(new BorderLayout());
         panel.add(jfxPanel, BorderLayout.CENTER);
 
+        panel.setPreferredSize(new Dimension(700, 500));
         return panel;
     }
 
