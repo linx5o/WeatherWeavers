@@ -1,4 +1,4 @@
-package use_case.get_weather_on_map;
+package data_access;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -8,7 +8,10 @@ import javafx.scene.web.WebView;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class testWebPanel {
 
@@ -19,14 +22,27 @@ public class testWebPanel {
             WebView webView = new WebView();
             jfxPanel.setScene(new Scene(webView));
 
-            File file = new File(pageURL);
+//            File file = new File(pageURL);
+//            try {
+//                webView.getEngine().load(file.toURI().toURL().toString());
+//            } catch (MalformedURLException e) {
+//                throw new RuntimeException(e);
+//            }
+
+            String latitude = "39.9042";
+            String longitude = "116.4074";
+
             try {
-                webView.getEngine().load(file.toURI().toURL().toString());
-            } catch (MalformedURLException e) {
+                String htmlContent = new String(Files.readAllBytes(Paths.get("src/data_access/mapPage.html")));
+
+                htmlContent = htmlContent.replace("honda1", latitude);
+                htmlContent = htmlContent.replace("honda2", longitude);
+
+                webView.getEngine().loadContent(htmlContent);
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-//            webView.getEngine().load(pageURL);
         });
 
 
@@ -36,6 +52,9 @@ public class testWebPanel {
 
         return panel;
     }
+
+
+
 
     public static void main(String[] args) {
         // Ensures the JavaFX runtime is initialized

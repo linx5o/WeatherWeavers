@@ -1,8 +1,12 @@
 package interface_adapter.GetWeatherOnMap;
 
+import javax.swing.*;
+
 public class GetWeatherOnMapState {
     private double centerLatitude;
     private double centerLongitude;
+
+    private JPanel mapPanel;
 
     // Constructor
     public GetWeatherOnMapState() {
@@ -27,6 +31,14 @@ public class GetWeatherOnMapState {
 
     public void setCenterLongitude(double centerLongitude) {
         this.centerLongitude = centerLongitude;
+    }
+
+    public JPanel getMapPanel() {
+        return mapPanel;
+    }
+
+    public void setMapPanel(JPanel mapPanel) {
+        this.mapPanel = mapPanel;
     }
 
 }

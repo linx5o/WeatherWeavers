@@ -28,21 +28,8 @@ public class GetWeatherOnMapInteractor implements GetWeatherOnMapInputBoundary{
 
     @Override
     public void execute(GetWeatherOnMapInputData getWeatherOnMapInputData) {
-        JFXPanel jfxPanel = new JFXPanel();
-        Platform.runLater(() -> {
-            WebView webView = new WebView();
-            jfxPanel.setScene(new Scene(webView));
 
-            File file = new File("src/use_case/get_weather_on_map/mapPage.html");
-            try {
-                webView.getEngine().load(file.toURI().toURL().toString());
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.add(jfxPanel, BorderLayout.CENTER);
+        JPanel panel = this.getWeatherOnMapDataAccessObject.getWeatherOnMap();
 
         GetWeatherOnMapOutputData getWeatherOnMapOutputData = new GetWeatherOnMapOutputData(panel);
         this.getWeatherOnMapPresenter.prepareWeatherPage(getWeatherOnMapOutputData);
