@@ -17,6 +17,8 @@ public class SetCityPresenter implements SetCityOutputBoundary {
         SettingsState state = settingsViewModel.getState();
         state.addListCity(setCityOutputData.getCity());
         state.setListCityMessage(success);
+        state.setListCityCity("");
+        state.setListCityCountry("");
         settingsViewModel.setState(state);
         settingsViewModel.firePropertyChanged();
     }
@@ -25,6 +27,8 @@ public class SetCityPresenter implements SetCityOutputBoundary {
     public void prepareFailView(String error) {
         SettingsState state = settingsViewModel.getState();
         state.setListCityMessage(error);
+        state.setListCityCity("");
+        state.setListCityCountry("");
         settingsViewModel.setState(state);
         settingsViewModel.firePropertyChanged();
     }
