@@ -28,6 +28,7 @@ public class SetCityInteractorTest {
         setCityDataAccessObject = new SetCityDataAccessInterface() {
             @Override
             public int addCity(String city) {
+                settings.getSavedCities().add(city);
                 return 0;
             }
 
@@ -128,9 +129,9 @@ public class SetCityInteractorTest {
     public void testSetCityInteractor() {
         SetCityInputBoundary setCityInteractor = new SetCityInteractor(setCityPresenter, setCityDataAccessObject);
         SetCityInputData setCityInputData = new SetCityInputData("london,ca");
+        setCityInteractor.execute(setCityInputData);
         SetCityOutputData setCityOutputData = new SetCityOutputData(setCityDataAccessObject.getSettings().getSavedCities());
         assertEquals(setCityOutputData.getCity(), cities);
-        setCityInteractor.execute(setCityInputData);
     }
 
     @Test
