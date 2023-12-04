@@ -15,7 +15,7 @@ public class SetCityInteractor implements SetCityInputBoundary{
     @Override
     public void execute(SetCityInputData setCityInputData){
         if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 0) {
-            SetCityOutputData setCityOutputData = new SetCityOutputData(setCityInputData.getCity());
+            SetCityOutputData setCityOutputData = new SetCityOutputData(setCityDataAccessObject.getSettings().getSavedCities());
             setCityPresenter.prepareSuccessView(setCityOutputData, "Successfully set city!");
         }
         else if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 1) {
