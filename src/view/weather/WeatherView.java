@@ -1,16 +1,22 @@
 package view.weather;
 
+import interface_adapter.WeatherViewModel;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class WeatherView extends JPanel {
     public final String viewName = "weather";
 
+    private final WeatherViewModel weatherViewModel;
+
     /**
      * Creates a new <code>JPanel</code> with a double buffer
      * and a flow layout.
      */
-    public WeatherView(GetWeatherView getWeatherView, HourlyView hourlyView, HumidityView humidityView, OtherCitiesView otherCitiesView, ForecastView forecastView) {
+    public WeatherView(GetWeatherView getWeatherView, HourlyView hourlyView, HumidityView humidityView, OtherCitiesView otherCitiesView, ForecastView forecastView, WeatherViewModel weatherViewModel) {
+        this.weatherViewModel = weatherViewModel;
+
         this.setLayout(new GridBagLayout());
         this.setBackground(Color.decode("#0D131D"));
         GridBagConstraints c = new GridBagConstraints();

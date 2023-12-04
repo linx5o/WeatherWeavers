@@ -33,6 +33,11 @@ public class GetWeatherViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
     public GetWeatherState getState() {
         return state;
     }

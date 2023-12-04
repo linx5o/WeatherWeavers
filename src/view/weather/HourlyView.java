@@ -152,6 +152,21 @@ public class HourlyView extends RoundedPanel implements ActionListener, Property
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // TODO: implement
+        hourlyViewModel.removePropertyChangeListener(this);
+        this.controller.execute();
+        hourlyViewModel.addPropertyChangeListener(this);
+
+        HourlyState state = hourlyViewModel.getState();
+
+        this.temp1Label.setText(state.getTemp1());
+        this.temp2Label.setText(state.getTemp2());
+        this.temp3Label.setText(state.getTemp3());
+        this.temp4Label.setText(state.getTemp4());
+        this.temp5Label.setText(state.getTemp5());
+        this.time1Label.setText(state.getTime1());
+        this.time2Label.setText(state.getTime2());
+        this.time3Label.setText(state.getTime3());
+        this.time4Label.setText(state.getTime4());
+        this.time5Label.setText(state.getTime5());
     }
 }
