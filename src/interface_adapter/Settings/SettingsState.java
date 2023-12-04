@@ -1,15 +1,30 @@
 package interface_adapter.Settings;
 
+import java.util.ArrayList;
+
 public class SettingsState {
-    private String city;
+    private ArrayList<String> cityList;
+    private String listCityMessage;
     private boolean tempUnit;
     private boolean is24HourFormat;
 
     public SettingsState() {
     }
 
-    public String getCity() {
-        return city;
+    public void addListCity(String city) {
+        this.cityList.add(city);
+    }
+
+    public ArrayList<String> getCityList() {
+        return cityList;
+    }
+
+    public void setListCityMessage(String message) {
+        this.listCityMessage = message;
+    }
+
+    public String getListCityMessage() {
+        return listCityMessage;
     }
 
     public boolean getTempUnit() {
@@ -18,10 +33,6 @@ public class SettingsState {
 
     public boolean getIs24HourFormat() {
         return is24HourFormat;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public void setTempUnit(boolean tempUnit) {
