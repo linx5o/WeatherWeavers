@@ -20,7 +20,9 @@
 <div id="mapid" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;"></div>
 
 <script>
-    var map = L.map('mapid').setView([43.663050, -79.391773], 10);
+    var map = L.map('mapid').setView([honda1, honda2], 10);
+
+    // var map = L.map('mapid').setView([43.663050, -79.391773], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attributions: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -186,70 +188,6 @@
         changeRadarPosition(nextPosition + preloadingDirection, true);
     }
 
-    /**
-     * Stop the animation
-     * Check if the animation timeout is set and clear it.
-     */
-    function stop() {
-        if (animationTimer) {
-            clearTimeout(animationTimer);
-            animationTimer = false;
-            return true;
-        }
-        return false;
-    }
-
-    function play() {
-        showFrame(animationPosition + 1);
-
-        // Main animation driver. Run this function every 500 ms
-        animationTimer = setTimeout(play, 500);
-    }
-
-    function playStop() {
-        if (!stop()) {
-            play();
-        }
-    }
-
-    /**
-     * Change map options
-     */
-    function setKind(kind) {
-        optionKind = kind;
-        initialize(apiData, optionKind);
-    }
-
-
-    function setColors() {
-        var e = document.getElementById('colors');
-        optionColorScheme = e.options[e.selectedIndex].value;
-        initialize(apiData, optionKind);
-    }
-
-
-    /**
-     * Handle arrow keys for navigation between next \ prev frames
-     */
-    document.onkeydown = function (e) {
-        e = e || window.event;
-        switch (e.which || e.keyCode) {
-            case 37: // left
-                stop();
-                showFrame(animationPosition - 1, true);
-                break;
-
-            case 39: // right
-                stop();
-                showFrame(animationPosition + 1, true);
-                break;
-
-            default:
-                return; // exit this handler for other keys
-        }
-        e.preventDefault();
-        return false;
-    }
 </script>
 
 </body>
