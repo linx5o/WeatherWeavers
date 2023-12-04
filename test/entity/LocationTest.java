@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -10,6 +11,7 @@ public class LocationTest {
     private double longitude;
     private double latitude;
 
+    @Before
     public void setUp() {
         cityName = "Toronto";
         longitude = 51.5074;

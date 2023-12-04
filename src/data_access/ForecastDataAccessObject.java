@@ -82,4 +82,10 @@ public class ForecastDataAccessObject implements ForecastDataAccessInterface {
 //        System.out.println(weatherList);
         return weatherList;
     }
+
+//    public static void main(String[] args) {
+//        ForecastDataAccessObject forecastDataAccessObject = new ForecastDataAccessObject();
+//        System.out.println(forecastDataAccessObject.getForecast("Toronto", 1, true).size());
+//        forecastDataAccessObject.getForecast("Toronto", 1, true);
+//    }
 }

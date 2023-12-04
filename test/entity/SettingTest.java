@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class SettingTest {
     private String defaultCity;
     private ArrayList<String> savedCities;
 
+    @Before
     public void setUp() {
         celsius = true;
         darkMode = true;

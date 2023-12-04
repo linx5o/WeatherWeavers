@@ -29,7 +29,7 @@ public class testCoordinates {
     }
 
     public static void main(String[] args) {
-        String[] coordinates = getCoordinates("Beijing");
+        String[] coordinates = getCoordinates("Toronto");
         if (coordinates != null) {
             System.out.println("Latitude: " + coordinates[0] + ", Longitude: " + coordinates[1]);
         } else {
