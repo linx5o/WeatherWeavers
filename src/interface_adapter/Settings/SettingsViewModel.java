@@ -28,6 +28,11 @@ public class SettingsViewModel extends ViewModel{
         support.addPropertyChangeListener(listener);
     }
 
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
     public SettingsState getState() {
         return state;
     }

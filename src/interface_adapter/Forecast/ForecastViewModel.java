@@ -24,6 +24,11 @@ public class ForecastViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
     public void setState(ForecastState state) {
         this.state = state;
     }

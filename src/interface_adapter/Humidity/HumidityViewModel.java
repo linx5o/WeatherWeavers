@@ -27,6 +27,10 @@ public class HumidityViewModel extends ViewModel{
         support.addPropertyChangeListener(listener);
     }
 
+    public void removePropertyChangeListener(java.beans.PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
     public HumidityState getState() {
         return state;
     }
