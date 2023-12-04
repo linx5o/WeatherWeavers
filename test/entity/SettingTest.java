@@ -31,79 +31,82 @@ public class SettingTest {
     @Test
     public void testGetCelsius() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
-        assertEquals(Optional.of(true), settings.getCelsius());
+        assert settings.getCelsius();
     }
 
     @Test
     public void testGetDarkMode() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
-        assertEquals(Optional.of(true), settings.getDarkMode());
+        assert settings.getDarkMode();
     }
 
     @Test
     public void testGetTimeFormat() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
-        assertEquals(Optional.of(true), settings.getTimeFormat());
+        assert settings.getTimeFormat();
     }
 
     @Test
     public void testGetDefaultCity() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
-        assertEquals(Optional.of("Toronto"), settings.getDefaultCity());
+        assertEquals("Toronto", settings.getDefaultCity());
     }
 
     @Test
     public void testGetSavedCities() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
-        assertEquals(Optional.of(savedCities), settings.getSavedCities());
+        assertEquals(savedCities, settings.getSavedCities());
     }
 
     @Test
     public void testSetCelsius() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.setCelsius(false);
-        assertEquals(Optional.of(false), settings.getCelsius());
+//        assertEquals(Optional.of(false), settings.getCelsius());
+        assert settings.getCelsius() == false;
     }
 
     @Test
     public void testSetDarkMode() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.setDarkMode(false);
-        assertEquals(Optional.of(false), settings.getDarkMode());
+//        assertEquals(Optional.of(false), settings.getDarkMode());
+        assert settings.getDarkMode() == false;
     }
 
     @Test
     public void testSetTimeFormat() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.setTimeFormat(false);
-        assertEquals(Optional.of(false), settings.getTimeFormat());
+//        assertEquals(Optional.of(false), settings.getTimeFormat());
+        assert settings.getTimeFormat() == false;
     }
 
     @Test
     public void testSetDefaultCity() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.setDefaultCity("Vancouver");
-        assertEquals(Optional.of("Vancouver"), settings.getDefaultCity());
+        assertEquals("Vancouver", settings.getDefaultCity());
     }
 
     @Test
     public void testAddSavedCities() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.addSavedCities("Calgary");
-        assertEquals(Optional.of("Calgary"), settings.getSavedCities().get(4));
+        assertEquals("Calgary", settings.getSavedCities().get(4));
     }
 
     @Test
     public void testRemoveSavedCities() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.removeSavedCities("Toronto");
-        assertEquals(Optional.of("Vancouver"), settings.getSavedCities().get(0));
+        assertEquals("Vancouver", settings.getSavedCities().get(0));
     }
 
     @Test
     public void testEmptySavedCities() {
         Settings settings = new Settings(true, true, true, "Toronto", savedCities);
         settings.emptySavedCities();
-        assertEquals(Optional.of(new ArrayList<String>()), settings.getSavedCities());
+        assertEquals(new ArrayList<String>(), settings.getSavedCities());
     }
 }
