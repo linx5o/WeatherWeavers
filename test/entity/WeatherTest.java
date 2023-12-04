@@ -60,5 +60,45 @@ public class WeatherTest {
         Assert.assertEquals("Date should be today's date", expectedDate, weather.getDate());
     }
 
+    @Test
+    public void testGetHighTemp() {
+        Assert.assertEquals("High temperature should match the constructor input", highTemp, weather.getHighTemp());
+    }
+
+    @Test
+    public void testGetLowTemp() {
+        Assert.assertEquals("Low temperature should match the constructor input", lowTemp, weather.getLowTemp());
+    }
+
+    @Test
+    public void testGetCity() {
+        Assert.assertEquals("City should match the constructor input", city, weather.getCity());
+    }
+
+    @Test
+    public void testGetCelsius() {
+        Assert.assertEquals("Celsius should match the constructor input", celsius, weather.getCelsius());
+    }
+
+    @Test
+    public void testGetWindSpeed() {
+        Assert.assertEquals("Wind speed should match the constructor input", windSpeed, weather.getWindSpeed());
+    }
+
+    @Test
+    public void testGetRainPercent() {
+        Assert.assertEquals("Rain percent should match the constructor input", rainPercent, weather.getRainPercent());
+    }
+
+    @Test
+    public void testGetSunrise() {
+        Assert.assertEquals("Sunrise should match the constructor input", sunrise, weather.getSunrise());
+    }
+
+    @Test
+    public void testGetSunset() {
+        Assert.assertEquals("Sunset should match the constructor input", sunset, weather.getSunset());
+    }
+
     // ... Additional tests for other scenarios ...
 }
