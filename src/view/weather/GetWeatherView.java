@@ -281,6 +281,22 @@ public class GetWeatherView extends JPanel implements ActionListener, PropertyCh
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // TODO
+        getWeatherViewModel.removePropertyChangeListener(this);
+        this.controller.execute();
+        getWeatherViewModel.addPropertyChangeListener(this);
+
+        GetWeatherState state = getWeatherViewModel.getState();
+
+        this.city.setText(state.getCity());
+        this.date.setText(state.getDate());
+        this.temperatureIcon.setIcon(state.getTemperatureIcon());
+        this.temperature.setText(state.getTemperature());
+        this.temperatureLabel.setText(state.getDescription());
+        this.high.setText(state.getHigh());
+        this.low.setText(state.getLow());
+        this.wind.setText(state.getWind());
+        this.rain.setText(state.getRain());
+        this.sunrise.setText(state.getSunrise());
+        this.sunset.setText(state.getSunset());
     }
 }

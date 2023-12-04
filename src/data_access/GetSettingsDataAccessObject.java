@@ -55,11 +55,11 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
         // File does not exist, create a new file
         ArrayList<String> savedCities = new ArrayList<>();
         savedCities.add("ottawa,ca");
-        savedCities.add("winnipeg,ca");
-        savedCities.add("montreal,ca");
-        savedCities.add("vancouver,ca");
-        savedCities.add("toronto,ca");
-        savedCities.add("calgary,ca");
+//        savedCities.add("winnipeg,ca");
+//        savedCities.add("montreal,ca");
+//        savedCities.add("vancouver,ca");
+//        savedCities.add("toronto,ca");
+//        savedCities.add("calgary,ca");
         return new Settings(true, true, true, "toronto,ca", savedCities);
     }
 }
