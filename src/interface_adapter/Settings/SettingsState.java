@@ -3,16 +3,16 @@ package interface_adapter.Settings;
 import java.util.ArrayList;
 
 public class SettingsState {
-    private ArrayList<String> cityList;
-    private String listCityMessage;
-    private boolean tempUnit;
-    private boolean is24HourFormat;
-    private String listCityCity;
-    private String listCityCountry;
-    private String defaultCityMessage;
-    private String defaultCity;
-    private String defaultCityCity;
-    private String defaultCityCountry;
+    private ArrayList<String> cityList = new ArrayList<>();
+    private String listCityMessage = "";
+    private boolean tempUnit = true;
+    private boolean is24HourFormat = true;
+    private String listCityCity = "";
+    private String listCityCountry = "";
+    private String defaultCityMessage = "";
+    private String defaultCity = "";
+    private String defaultCityCity = "";
+    private String defaultCityCountry = "";
 
     public SettingsState() {
     }
