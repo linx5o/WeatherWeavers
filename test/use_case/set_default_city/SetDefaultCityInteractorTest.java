@@ -3,12 +3,14 @@ package use_case.set_default_city;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class SetDefaultCityInteractorTest {
 
     private SetDefaultCityOutputBoundary setDefaultCityPresenter;
     private SetDefaultCityDataAccessInterface setDefaultCityDataAccessObject;
     private SetDefaultCityDataAccessInterface setDefaultCityDataAccessObjectFail;
-    private String addedCityName;
+    private String addedCityName = "city";
 
     @Before
     public void setUp() {
@@ -28,7 +30,6 @@ public class SetDefaultCityInteractorTest {
         setDefaultCityPresenter = new SetDefaultCityOutputBoundary() {
             @Override
             public void prepareSuccessView(SetDefaultCityOutputData setDefaultCityOutputData) {
-                addedCityName = setDefaultCityOutputData.getCityName();
             }
 
             @Override
@@ -41,6 +42,8 @@ public class SetDefaultCityInteractorTest {
     public void testSetDefaultCity() {
         SetDefaultCityInteractor setDefaultCityInteractor = new SetDefaultCityInteractor(setDefaultCityPresenter, setDefaultCityDataAccessObject);
         SetDefaultCityInputData setDefaultCityInputData = new SetDefaultCityInputData("city");
+        SetDefaultCityOutputData setDefaultCityOutputData = new SetDefaultCityOutputData(setDefaultCityInputData.getCityName());
+        assertEquals(setDefaultCityOutputData.getCityName(), addedCityName);
         setDefaultCityInteractor.execute(setDefaultCityInputData);
     }
 
