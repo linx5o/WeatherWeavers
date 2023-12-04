@@ -1,58 +1,92 @@
-//package data_access;
-//
-//import javafx.application.Platform;
-//import javafx.embed.swing.JFXPanel;
-//import javafx.scene.Scene;
-//import javafx.scene.web.WebView;
-//import use_case.get_weather_on_map.GetWeatherOnMapDataAccessInterface;
-//import use_case.get_weather_on_map.GetWeatherOnMapSettingDataAccessInterface;
-//
-//import javax.swing.*;
-//import java.awt.*;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//
-//public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAccessInterface {
-//    private final String pageURL;
-//    private final GetWeatherOnMapSettingDataAccessInterface GetSettingsDataAccessObject;
-//
-//    public GetWeatherOnMapDataAccessObject() {
-//        this.pageURL = "src/data_access/mapPage.html";
-//        this.GetSettingsDataAccessObject = new GetSettingsDataAccessObject();
-//    }
-//
-//    @Override
-//    public JPanel getWeatherOnMap() {
-//        final JFXPanel jfxPanel = new JFXPanel();
-//
-//        Platform.runLater(() -> {
-//            WebView webView = new WebView();
-//            jfxPanel.setScene(new Scene(webView));
-//
-//            String longitude = "39.9042";
-//            String latitude = "116.4074";
-//
-//
-//            String city = GetSettingsDataAccessObject.getSettings().getDefaultCity();
-//
-//            try {
-//                String htmlContent = new String(Files.readAllBytes(Paths.get(pageURL)));
-//
-//                htmlContent = htmlContent.replace("honda1", longitude);
-//                htmlContent = htmlContent.replace("honda2", latitude);
-//
-//                webView.getEngine().loadContent(htmlContent);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-//        });
-//
-//        JPanel panel = new JPanel();
-//        panel.setLayout(new BorderLayout());
-//        panel.add(jfxPanel, BorderLayout.CENTER);
-//
-//        return panel;
-//    }
-//}
+package data_access;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import use_case.get_weather_on_map.GetWeatherOnMapDataAccessInterface;
+import use_case.get_weather_on_map.GetWeatherOnMapSettingDataAccessInterface;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAccessInterface {
+    private final String pageURL;
+    private final GetWeatherOnMapSettingDataAccessInterface GetSettingsDataAccessObject;
+
+    public GetWeatherOnMapDataAccessObject() {
+        this.pageURL = "src/data_access/mapPage.html";
+        this.GetSettingsDataAccessObject = new GetSettingsDataAccessObject();
+    }
+
+    @Override
+    public JPanel getWeatherOnMap() {
+        final JFXPanel jfxPanel = new JFXPanel();
+
+        Platform.runLater(() -> {
+            WebView webView = new WebView();
+            jfxPanel.setScene(new Scene(webView));
+
+            String[] coordinates = getCoordinates(GetSettingsDataAccessObject.getSettings().getDefaultCity());
+            String longitude;
+            String latitude;
+            if (coordinates != null) {
+                longitude = coordinates[1];
+                latitude = coordinates[0];
+            } else {
+                System.out.println("Coordinates not found.");
+                // load default coordinates
+                latitude = "43.6532";
+                longitude = "79.3832";
+            }
+
+            String city = GetSettingsDataAccessObject.getSettings().getDefaultCity();
+
+            try {
+                String htmlContent = new String(Files.readAllBytes(Paths.get(pageURL)));
+
+                htmlContent = htmlContent.replace("honda1", latitude);
+                htmlContent = htmlContent.replace("honda2", longitude);
+
+                webView.getEngine().loadContent(htmlContent);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add(jfxPanel, BorderLayout.CENTER);
+
+        return panel;
+    }
+
+    public static String[] getCoordinates(String city) {
+        String apiUrl = "https://nominatim.openstreetmap.org/search?city=" + city + "&format=json";
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet(apiUrl);
+            String jsonResponse = EntityUtils.toString(httpClient.execute(request).getEntity());
+            JSONArray jsonArray = new JSONArray(jsonResponse);
+
+            if (!jsonArray.isEmpty()) {
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                String lat = jsonObject.getString("lat");
+                String lon = jsonObject.getString("lon");
+                return new String[]{lat, lon};
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}

@@ -29,14 +29,14 @@ public class testWebPanel {
 //                throw new RuntimeException(e);
 //            }
 
-            String longitude = "39.9042";
-            String latitude = "116.4074";
+            String latitude = "39.9042";
+            String longitude = "116.4074";
 
             try {
                 String htmlContent = new String(Files.readAllBytes(Paths.get("src/data_access/mapPage.html")));
 
-                htmlContent = htmlContent.replace("honda1", longitude);
-                htmlContent = htmlContent.replace("honda2", latitude);
+                htmlContent = htmlContent.replace("honda1", latitude);
+                htmlContent = htmlContent.replace("honda2", longitude);
 
                 webView.getEngine().loadContent(htmlContent);
             } catch (IOException e) {

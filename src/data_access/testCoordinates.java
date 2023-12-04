@@ -16,7 +16,7 @@ public class testCoordinates {
             String jsonResponse = EntityUtils.toString(httpClient.execute(request).getEntity());
             JSONArray jsonArray = new JSONArray(jsonResponse);
 
-            if (jsonArray.length() > 0) {
+            if (!jsonArray.isEmpty()) {
                 JSONObject jsonObject = jsonArray.getJSONObject(0);
                 String lat = jsonObject.getString("lat");
                 String lon = jsonObject.getString("lon");
@@ -29,7 +29,7 @@ public class testCoordinates {
     }
 
     public static void main(String[] args) {
-        String[] coordinates = getCoordinates("Toronto");
+        String[] coordinates = getCoordinates("Beijing");
         if (coordinates != null) {
             System.out.println("Latitude: " + coordinates[0] + ", Longitude: " + coordinates[1]);
         } else {
