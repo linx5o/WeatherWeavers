@@ -16,6 +16,7 @@ import use_case.hourly.HourlyDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
 import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import view.ViewManager;
+import view.settings.SettingsView;
 import view.sidebar.SidebarView;
 import view.weather.WeatherView;
 import interface_adapter.Forecast.ForecastViewModel;
@@ -151,6 +152,7 @@ public class Main {
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
         GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
         ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
+        SettingsDataAccessObject settingsDataAccessObject = new SettingsDataAccessObject();
 
         // Define Content View Manager
         CardLayout cardLayout = new CardLayout();
@@ -217,7 +219,7 @@ public class Main {
 //        content.add(mapView, mapView.viewName);
 //
 
-        SettingsView settingsView = SettingsUseCaseFactory.create(mainContentViewManagerModel, settingsViewModel);
+        SettingsView settingsView = SettingsUseCaseFactory.create(settingsViewModel, settingsDataAccessObject);
         content.add(settingsView, settingsView.viewName);
 
         mainContentViewManagerModel.setActiveView(weatherView.viewName);
