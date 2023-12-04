@@ -130,6 +130,7 @@ public class Main {
 //        SidebarViewModel sideBarViewModel = new SidebarViewModel();
 //        SearchViewModel searchViewModel = new SearchViewModel();
 
+        WeatherViewModel weatherViewModel = new WeatherViewModel();
         GetWeatherViewModel getWeatherViewModel = new GetWeatherViewModel();
         OtherCitiesViewModel otherCitiesViewModel = new OtherCitiesViewModel();
         HourlyViewModel hourlyViewModel = new HourlyViewModel();
@@ -168,18 +169,18 @@ public class Main {
         sidebar.setPreferredSize(new Dimension(100, 700));
         main.add(sidebar, BorderLayout.WEST);
 
-        SidebarView sidebarView = SidebarUseCaseFactory.create(sideBarViewModel, getWeatherViewModel, citiesViewModel, mapViewModel, settingsViewModel, mainContentViewManagerModel);
+        SidebarView sidebarView = SidebarUseCaseFactory.create(sideBarViewModel, getWeatherViewModel, citiesViewModel, mapViewModel, settingsViewModel, mainContentViewManagerModel, weatherViewModel, humidityViewModel, hourlyViewModel, forecastViewModel, otherCitiesViewModel);
         sidebar.add(sidebarView);
 
-        JPanel sidebarPlaceHolder = new JPanel();
-        sidebarPlaceHolder.setPreferredSize(new Dimension(100, 700));
-        sidebarPlaceHolder.setBackground(Color.decode("#0D131D"));
-        sidebar.add(sidebarPlaceHolder);
-        JButton button = new JButton("Button");
-        sidebarPlaceHolder.add(button);
-        JLabel label = new JLabel("Label");
-        label.setFont(ImportFont.getFont("Thin", 30));
-        sidebarPlaceHolder.add(label);
+//        JPanel sidebarPlaceHolder = new JPanel();
+//        sidebarPlaceHolder.setPreferredSize(new Dimension(100, 700));
+//        sidebarPlaceHolder.setBackground(Color.decode("#0D131D"));
+//        sidebar.add(sidebarPlaceHolder);
+//        JButton button = new JButton("Button");
+//        sidebarPlaceHolder.add(button);
+//        JLabel label = new JLabel("Label");
+//        label.setFont(ImportFont.getFont("Thin", 30));
+//        sidebarPlaceHolder.add(label);
 
 
         // Main Side
@@ -205,7 +206,7 @@ public class Main {
         // Main Content
         mainSide.add(content, BorderLayout.CENTER);
 
-        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel);
+        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel, weatherViewModel);
         content.add(weatherView, weatherView.viewName);
 
 //
