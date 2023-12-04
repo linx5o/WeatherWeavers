@@ -8,6 +8,7 @@ import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import use_case.get_other_cities.OtherCitiesSettingsDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.hourly.HourlySettingsDataAccessInterface;
+import use_case.humidity.HumiditySettingDataAccessInterface;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface {
+public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface, HumiditySettingDataAccessInterface {
     @Override
     public Settings getSettings() {
         File file = new File("src/app/userpref.txt");
