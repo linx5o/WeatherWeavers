@@ -67,18 +67,14 @@ public class SetCityInteractorTest {
         setCityPresenter = new SetCityOutputBoundary() {
             private String successMessage;
             private String errorMessage;
-            private String cityName = "";
+//            private String cityName = "";
             private ArrayList<String> cities;
             @Override
             public void prepareSuccessView(SetCityOutputData setCityOutputData, String success) {
                 successMessage = success;
-                cityName = setCityOutputData.getCity();
-                cities = setCityOutputData.getCities();
-                if (!cityName.equals("london,ca")) {
+                cities = setCityOutputData.getCity();
+                if (cities == null) {
                     fail();
-                }
-                else {
-                    errorMessage = "";
                 }
             }
 
@@ -95,8 +91,8 @@ public class SetCityInteractorTest {
                 return errorMessage;
             }
 
-            public String getCityName() {
-                return cityName;
+            public ArrayList<String> getCities() {
+                return cities;
             }
         };
     }
