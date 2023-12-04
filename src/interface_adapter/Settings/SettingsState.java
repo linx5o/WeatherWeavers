@@ -65,8 +65,8 @@ public class SettingsState {
         this.defaultCityCountry = defaultCityCountry;
     }
 
-    public void addListCity(String city) {
-        this.cityList.add(city);
+    public void addListCity(ArrayList<String> city) {
+        this.cityList = city;
     }
 
     public ArrayList<String> getCityList() {
