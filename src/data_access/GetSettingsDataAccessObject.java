@@ -60,7 +60,7 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
         savedCities.add("winnipeg,ca");
         savedCities.add("montreal,ca");
         savedCities.add("vancouver,ca");
-        savedCities.add("toronto,ca");
+        savedCities.add("edmonton,ca");
         savedCities.add("calgary,ca");
 
         return new Settings(true, true, true, "toronto,ca", savedCities);
