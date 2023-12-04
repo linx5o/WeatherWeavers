@@ -216,6 +216,10 @@ public class Main {
 //        MapView mapView = MapUseCaseFactory.create(mainContentViewManagerModel, mapViewModel, getWeatherViewModel, citiesViewModel);
 //        content.add(mapView, mapView.viewName);
 //
+
+        SettingsView settingsView = SettingsUseCaseFactory.create(mainContentViewManagerModel, settingsViewModel);
+        content.add(settingsView, settingsView.viewName);
+
         mainContentViewManagerModel.setActiveView(weatherView.viewName);
         mainContentViewManagerModel.firePropertyChanged();
 
