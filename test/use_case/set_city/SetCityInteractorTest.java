@@ -14,6 +14,8 @@ public class SetCityInteractorTest {
     private SetCityDataAccessInterface setCityDataAccessObjectFail1;
     private SetCityDataAccessInterface setCityDataAccessObjectFail2;
     private SetCityDataAccessInterface setCityDataAccessObjectFail3;
+    private SetCityDataAccessInterface setCityDataAccessObjectFail4;
+    private SetCityDataAccessInterface setCityDataAccessObjectFail5;
     private SetCityOutputBoundary setCityPresenter;
     private Settings settings;
 
@@ -57,6 +59,28 @@ public class SetCityInteractorTest {
             @Override
             public int addCity(String city) {
                 return 3;
+            }
+
+            @Override
+            public Settings getSettings() {
+                return settings;
+            }
+        };
+        setCityDataAccessObjectFail4 = new SetCityDataAccessInterface() {
+            @Override
+            public int addCity(String city) {
+                return 4;
+            }
+
+            @Override
+            public Settings getSettings() {
+                return settings;
+            }
+        };
+        setCityDataAccessObjectFail5 = new SetCityDataAccessInterface() {
+            @Override
+            public int addCity(String city) {
+                return 5;
             }
 
             @Override
@@ -121,6 +145,20 @@ public class SetCityInteractorTest {
     @Test
     public void testSetCityInteractorFail3() {
         SetCityInputBoundary setCityInteractor = new SetCityInteractor(setCityPresenter, setCityDataAccessObjectFail3);
+        SetCityInputData setCityInputData = new SetCityInputData("london,ca");
+        setCityInteractor.execute(setCityInputData);
+    }
+
+    @Test
+    public void testSetCityInteractorFail4() {
+        SetCityInputBoundary setCityInteractor = new SetCityInteractor(setCityPresenter, setCityDataAccessObjectFail4);
+        SetCityInputData setCityInputData = new SetCityInputData("london,ca");
+        setCityInteractor.execute(setCityInputData);
+    }
+
+    @Test
+    public void testSetCityInteractorFail5() {
+        SetCityInputBoundary setCityInteractor = new SetCityInteractor(setCityPresenter, setCityDataAccessObjectFail5);
         SetCityInputData setCityInputData = new SetCityInputData("london,ca");
         setCityInteractor.execute(setCityInputData);
     }

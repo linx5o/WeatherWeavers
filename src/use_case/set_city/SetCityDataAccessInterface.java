@@ -9,6 +9,7 @@ public interface SetCityDataAccessInterface {
     // 1 if city already exists,
     // 2 if city is the default city,
     // 3 if city is not found
+    // 4 if reached max number of cities
 
     Settings getSettings();
 }
