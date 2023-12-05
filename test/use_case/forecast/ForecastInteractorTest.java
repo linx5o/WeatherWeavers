@@ -143,5 +143,11 @@ public class ForecastInteractorTest {
         forecastInteractorInvalid.execute(2, true);
     }
 
-
+    @Test
+    public void testOutputDataFunctionality() {
+        ForecastOutputData forecastOutputData = new ForecastOutputData(2, new ArrayList<Weather>(), true);
+        int days = forecastOutputData.getDays();
+        List<Weather> weathers = forecastOutputData.getWeathers();
+        boolean information = forecastOutputData.isInformation();
+    }
 }
