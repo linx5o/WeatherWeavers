@@ -16,9 +16,9 @@ public class EraseCityPresenter implements EraseCityOutputBoundary {
     public void prepareSuccessView(EraseCityOutputData outputData, String message) {
         SettingsState state = viewModel.getState();
         state.addListCity(outputData.getCity());
-        state.setListCityCity("");
-        state.setListCityCountry("");
-        state.setListCityMessage(message);
+        state.setEraseCityCity("");
+        state.setEraseCityCountry("");
+        state.setEraseCityMessage(message);
         viewModel.setState(state);
         viewModel.firePropertyChanged();
     }
@@ -26,9 +26,9 @@ public class EraseCityPresenter implements EraseCityOutputBoundary {
     @Override
     public void prepareFailView(String message) {
         SettingsState state = viewModel.getState();
-        state.setListCityMessage(message);
-        state.setListCityCity("");
-        state.setListCityCountry("");
+        state.setEraseCityMessage(message);
+        state.setEraseCityCity("");
+        state.setEraseCityCountry("");
         viewModel.setState(state);
         viewModel.firePropertyChanged();
     }
