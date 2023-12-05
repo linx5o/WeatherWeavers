@@ -17,8 +17,8 @@ public class SetDefaultCityPresenter implements SetDefaultCityOutputBoundary {
         SettingsState state = settingsViewModel.getState();
         state.setDefaultCity(setDefaultCityOutputData.getCityName());
         String city = setDefaultCityOutputData.getCityName().split(",")[0];
-        city = city.substring(0, 1).toUpperCase() + city.substring(1);
-        state.setDefaultCityMessage("Current default city is " + city);
+        city = city.substring(0, 1).toUpperCase() + city.substring(1) + ", " + setDefaultCityOutputData.getCityName().split(",")[1].toUpperCase();
+        state.setDefaultCityMessage("Current default city is: " + city);
         state.setDefaultCityCity("");
         state.setDefaultCityCountry("");
         settingsViewModel.setState(state);
