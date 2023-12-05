@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.web.WebView;
+import use_case.forecast.ForecastSettingsDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
 
 import javax.swing.*;
@@ -16,11 +17,11 @@ import java.net.MalformedURLException;
 public class GetWeatherOnMapInteractor implements GetWeatherOnMapInputBoundary{
     final GetWeatherOnMapDataAccessInterface getWeatherOnMapDataAccessObject;
     final GetWeatherOnMapOutputBoundary getWeatherOnMapPresenter;
-    final GetSettingsDataAccessInterface getSettingsDataAccessObject;
+    final GetWeatherOnMapSettingDataAccessInterface getSettingsDataAccessObject;
 
     public GetWeatherOnMapInteractor(GetWeatherOnMapDataAccessInterface getWeatherOnMapDataAccessObject,
                                      GetWeatherOnMapOutputBoundary getWeatherOnMapPresenter,
-                                     GetSettingsDataAccessInterface getSettingsDataAccessObject) {
+                                     GetWeatherOnMapSettingDataAccessInterface getSettingsDataAccessObject) {
         this.getWeatherOnMapDataAccessObject = getWeatherOnMapDataAccessObject;
         this.getWeatherOnMapPresenter = getWeatherOnMapPresenter;
         this.getSettingsDataAccessObject = getSettingsDataAccessObject;
