@@ -13,6 +13,9 @@ public class SettingsState {
     private String defaultCity = "";
     private String defaultCityCity = "";
     private String defaultCityCountry = "";
+    private String eraseCityMessage = "";
+    private String eraseCityCity = "";
+    private String eraseCityCountry = "";
 
     public SettingsState() {
     }
@@ -70,7 +73,12 @@ public class SettingsState {
     }
 
     public ArrayList<String> getCityList() {
-        return cityList;
+        ArrayList<String> cityListFormatted = new ArrayList<>();
+        for (String city : cityList) {
+            String[] citySplit = city.split(",");
+            cityListFormatted.add(citySplit[0].substring(0, 1).toUpperCase() + citySplit[0].substring(1) + ", " + citySplit[1].toUpperCase());
+        }
+        return cityListFormatted;
     }
 
     public void setListCityMessage(String message) {
@@ -95,5 +103,29 @@ public class SettingsState {
 
     public void setTimeFormat(boolean is24HourFormat) {
         this.is24HourFormat = is24HourFormat;
+    }
+
+    public String getEraseCityMessage() {
+        return eraseCityMessage;
+    }
+
+    public void setEraseCityMessage(String eraseCityMessage) {
+        this.eraseCityMessage = eraseCityMessage;
+    }
+
+    public String getEraseCityCity() {
+        return eraseCityCity;
+    }
+
+    public void setEraseCityCity(String eraseCityCity) {
+        this.eraseCityCity = eraseCityCity;
+    }
+
+    public String getEraseCityCountry() {
+        return eraseCityCountry;
+    }
+
+    public void setEraseCityCountry(String eraseCityCountry) {
+        this.eraseCityCountry = eraseCityCountry;
     }
 }
