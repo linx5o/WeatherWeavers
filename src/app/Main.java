@@ -202,6 +202,11 @@ public class Main {
         JPanel searchPlaceHolder = new JPanel();
         searchPlaceHolder.setPreferredSize(new Dimension(920, 80));
         searchPlaceHolder.setBackground(Color.decode("#0D131D"));
+        searchPlaceHolder.setLayout(new GridBagLayout());
+        JLabel searchLabel = new JLabel("W e a t h e r     W e a v e r s");
+        searchLabel.setFont(ImportFont.getFont("ExtraLight", 36));
+        searchLabel.setForeground(Color.white);
+        searchPlaceHolder.add(searchLabel);
 
         search.add(searchPlaceHolder);
 
@@ -226,10 +231,10 @@ public class Main {
         mainContentViewManagerModel.setActiveView(weatherView.viewName);
         mainContentViewManagerModel.firePropertyChanged();
 
-        JPanel contentPlaceHolder = new JPanel();
-        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
-        contentPlaceHolder.setBackground(Color.green);
-        content.add(contentPlaceHolder);
+//        JPanel contentPlaceHolder = new JPanel();
+//        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
+//        contentPlaceHolder.setBackground(Color.green);
+//        content.add(contentPlaceHolder);
 
         application.pack();
         application.setResizable(false);
