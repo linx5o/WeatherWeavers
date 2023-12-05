@@ -795,26 +795,44 @@ public class OtherCitiesView extends RoundedPanel implements ActionListener, Pro
         if (city1NameLabel.getText().isEmpty()) {
             city1.setVisible(false);
             city1Filler.setVisible(true);
+        } else {
+            city1.setVisible(true);
+            city1Filler.setVisible(false);
         }
         if (city2NameLabel.getText().isEmpty()) {
             city2.setVisible(false);
             city2Filler.setVisible(true);
+        } else {
+            city2.setVisible(true);
+            city2Filler.setVisible(false);
         }
         if (city3NameLabel.getText().isEmpty()) {
             city3.setVisible(false);
             city3Filler.setVisible(true);
+        } else {
+            city3.setVisible(true);
+            city3Filler.setVisible(false);
         }
         if (city4NameLabel.getText().isEmpty()) {
             city4.setVisible(false);
             city4Filler.setVisible(true);
+        } else {
+            city4.setVisible(true);
+            city4Filler.setVisible(false);
         }
         if (city5NameLabel.getText().isEmpty()) {
             city5.setVisible(false);
             city5Filler.setVisible(true);
+        } else {
+            city5.setVisible(true);
+            city5Filler.setVisible(false);
         }
         if (city6NameLabel.getText().isEmpty()) {
             city6.setVisible(false);
             city6Filler.setVisible(true);
+        } else {
+            city6.setVisible(true);
+            city6Filler.setVisible(false);
         }
     }
 }

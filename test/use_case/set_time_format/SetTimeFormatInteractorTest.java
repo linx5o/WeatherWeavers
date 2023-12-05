@@ -15,8 +15,8 @@ public class SetTimeFormatInteractorTest {
     private SetTimeFormatOutputBoundary setTimeFormatPresenter;
     private Boolean is24HourFormat = true;
     private Settings settings;
-    private String messageSuccess = "Current temperature unit is Celsius";
-    private String messageFail = "Current temperature unit is Fahrenheit";
+    private String messageSuccess = "Current time format is 24 hour format.";
+    private String messageFail = "Current time format is 12 hour format.";
 
     @Before
     public void setUp() {

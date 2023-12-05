@@ -15,6 +15,7 @@ import use_case.get_weather.GetWeatherDataAccessInterface;
 import use_case.hourly.HourlyDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
 import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
+import use_case.settings_start.SettingsDataAccessInterface;
 import view.ViewManager;
 import view.settings.SettingsView;
 import view.sidebar.SidebarView;
@@ -152,7 +153,8 @@ public class Main {
         HumidityDataAccessInterface humidityDataAccessObject = new HumidityDataAccessObject();
         GetOtherCitiesDataAccessInterface otherCitiesDataAccessObject = new OtherCitiesDataAccessObject();
         ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
-        SettingsDataAccessObject settingsDataAccessObject = new SettingsDataAccessObject();
+        SettingsDataAccessInterface settingsDataAccessObject = new SettingsDataAccessObject();
+        ChangeSettingsDataAccessObject changeSettingsDataAccessObject = new ChangeSettingsDataAccessObject();
 
         // Define Content View Manager
         CardLayout cardLayout = new CardLayout();
@@ -201,7 +203,13 @@ public class Main {
 
         JPanel searchPlaceHolder = new JPanel();
         searchPlaceHolder.setPreferredSize(new Dimension(920, 80));
-        searchPlaceHolder.setBackground(Color.cyan);
+        searchPlaceHolder.setBackground(Color.decode("#0D131D"));
+        searchPlaceHolder.setLayout(new GridBagLayout());
+        JLabel searchLabel = new JLabel("W e a t h e r     W e a v e r s");
+        searchLabel.setFont(ImportFont.getFont("ExtraLight", 36));
+        searchLabel.setForeground(Color.white);
+        searchPlaceHolder.add(searchLabel);
+
         search.add(searchPlaceHolder);
 
 
@@ -219,16 +227,16 @@ public class Main {
 //        content.add(mapView, mapView.viewName);
 //
 
-        SettingsView settingsView = SettingsUseCaseFactory.create(settingsViewModel, settingsDataAccessObject);
+        SettingsView settingsView = SettingsUseCaseFactory.create(settingsViewModel, settingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject);
         content.add(settingsView, settingsView.viewName);
 
         mainContentViewManagerModel.setActiveView(weatherView.viewName);
         mainContentViewManagerModel.firePropertyChanged();
 
-        JPanel contentPlaceHolder = new JPanel();
-        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
-        contentPlaceHolder.setBackground(Color.green);
-        content.add(contentPlaceHolder);
+//        JPanel contentPlaceHolder = new JPanel();
+//        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
+//        contentPlaceHolder.setBackground(Color.green);
+//        content.add(contentPlaceHolder);
 
         application.pack();
         application.setResizable(false);
