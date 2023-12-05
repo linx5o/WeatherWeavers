@@ -389,22 +389,22 @@ public class SettingsView extends JPanel implements ActionListener, PropertyChan
         cityPanel.setOpaque(false);
 
 //        city1.setText("City 1:");
-        city1.setFont(ImportFont.getFont("Bold", 32));
+        city1.setFont(ImportFont.getFont("Medium", 26));
         city1.setForeground(Color.decode("#D9D9D9"));
 //        city2.setText("City 2:");
-        city2.setFont(ImportFont.getFont("Bold", 32));
+        city2.setFont(ImportFont.getFont("Medium", 26));
         city2.setForeground(Color.decode("#D9D9D9"));
 //        city3.setText("City 3:");
-        city3.setFont(ImportFont.getFont("Bold", 32));
+        city3.setFont(ImportFont.getFont("Medium", 26));
         city3.setForeground(Color.decode("#D9D9D9"));
 //        city4.setText("City 4:");
-        city4.setFont(ImportFont.getFont("Bold", 32));
+        city4.setFont(ImportFont.getFont("Medium", 26));
         city4.setForeground(Color.decode("#D9D9D9"));
 //        city5.setText("City 5:");
-        city5.setFont(ImportFont.getFont("Bold", 32));
+        city5.setFont(ImportFont.getFont("Medium", 26));
         city5.setForeground(Color.decode("#D9D9D9"));
 //        city6.setText("City 6:");
-        city6.setFont(ImportFont.getFont("Bold", 32));
+        city6.setFont(ImportFont.getFont("Medium", 26));
         city6.setForeground(Color.decode("#D9D9D9"));
 
         GridBagConstraints cityConstraints = new GridBagConstraints();
@@ -438,6 +438,7 @@ public class SettingsView extends JPanel implements ActionListener, PropertyChan
 
         cityConstraints.gridx = 0;
         cityConstraints.gridy = 5;
+        cityConstraints.insets = new Insets(5, 0, 37, 0);
 
         cityPanel.add(city6, cityConstraints);
 
@@ -705,6 +706,9 @@ public class SettingsView extends JPanel implements ActionListener, PropertyChan
         });
 
         cityListEraseButtonPanel.add(eraseCityButton);
+
+        setCityButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        eraseCityButton.setAlignmentY(Component.CENTER_ALIGNMENT);
 
         cityRight.gridx = 0;
         cityRight.gridy = 3;
