@@ -6,7 +6,9 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class SettingsViewModel extends ViewModel{
-    // TODO
+    public static final String SET_DEFAULT_CITY_BUTTON_LABEL = "Set Default City";
+    public static final String SET_CITY_BUTTON_LABEL = "Add City";
+    public static final String ERASE_CITY_BUTTON_LABEL = "Remove City";
 
     private SettingsState state = new SettingsState();
 
