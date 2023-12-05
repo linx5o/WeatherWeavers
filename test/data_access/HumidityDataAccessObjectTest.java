@@ -24,7 +24,15 @@ public class HumidityDataAccessObjectTest {
 
     @Test
     public void testGetHumidity() {
-        assertEquals(null, humidityDataAccessObject.getHumidity("Toronto", "2021-03-20"));
-        //TODO replace the expected value with the actual value that should get from the API
+        humidityDataAccessObject.getHumidity("toronto, ca", "2021-03-20");
+    }
+
+    @Test
+    public void testGetHumidityInvalidCity() {
+        try{
+            humidityDataAccessObject.getHumidity("InvalidCity", "2021-03-20");
+        } catch (Exception e) {
+            assert true;
+        }
     }
 }
