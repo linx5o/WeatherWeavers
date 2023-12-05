@@ -11,17 +11,16 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-class GetOtherCitiesInteractorTest {
+public class GetOtherCitiesInteractorTest {
 
     private GetOtherCitiesDataAccessInterface weatherDataAccess;
     private OtherCitiesSettingsDataAccessInterface settingsDataAccess;
-    private GetOtherCitiesOutputBoundary outputBoundary;
     private GetOtherCitiesInteractor interactor;
-    private List<Weather> testWeatherData;
+//    private List<Weather> testWeatherData;
 
 
     @Before
-    void setUp() {
+    public void setUp() {
         // 创建并配置settingsDataAccess以返回预设的设置数据
         settingsDataAccess = new OtherCitiesSettingsDataAccessInterface() {
             @Override
@@ -30,7 +29,7 @@ class GetOtherCitiesInteractorTest {
                 savedCities.add("City1,ca");
                 savedCities.add("City2,ca");
                 // 创建并返回包含这些城市的Settings对象
-                return new Settings(true, true, true, "City1,ca", savedCities);
+                return new Settings(true, true, true, "City3,ca", savedCities);
             }
         };
 
@@ -58,7 +57,7 @@ class GetOtherCitiesInteractorTest {
         };
 
         // 创建一个模拟的outputBoundary
-        GetOtherCitiesOutputBoundary testOutputBoundary = new GetOtherCitiesOutputBoundary() {
+        GetOtherCitiesOutputBoundary getOtherCitiesPresenter = new GetOtherCitiesOutputBoundary() {
             @Override
             public void presentOtherCitiesWeather(GetOtherCitiesOutputData response) {
                 // 检查两件事：输出数据是否正确，以及天气信息是否如预期创建
@@ -72,12 +71,12 @@ class GetOtherCitiesInteractorTest {
 
 
         // 创建interactor实例
-        interactor = new GetOtherCitiesInteractor(settingsDataAccess, weatherDataAccess, outputBoundary);
+        interactor = new GetOtherCitiesInteractor(settingsDataAccess, weatherDataAccess, getOtherCitiesPresenter);
     }
 
 
     @Test
-    void testGetWeatherInfoForOtherCities() {
+    public void testGetWeatherInfoForOtherCities() {
         // 获取当前时间
         LocalTime currentTime = LocalTime.now();
 
