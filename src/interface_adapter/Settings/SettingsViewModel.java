@@ -10,6 +10,8 @@ public class SettingsViewModel extends ViewModel{
     public static final String SET_CITY_BUTTON_LABEL = "Add City";
     public static final String ERASE_CITY_BUTTON_LABEL = "Remove City";
     public static final String DEFAULT_CITY_TITLE_LABEL = "Default City";
+    public static final String TOGGLES_TITLE_LABEL = "Toggles";
+    public static final String CITY_LIST_TITLE_LABEL = "Other Cities List";
 
     private SettingsState state = new SettingsState();
 

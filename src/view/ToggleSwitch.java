@@ -12,14 +12,14 @@ public class ToggleSwitch extends JToggleButton {
 
     public ToggleSwitch() {
         super();
-        setPreferredSize(new Dimension(50, 30));
+        setPreferredSize(new Dimension(40, 20));
         setContentAreaFilled(false);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(isSelected() ? buttonColor : inactiveColor);
-        g.fillRoundRect(0, 0, getWidth(), getHeight(), 30, 30);
+        g.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
 
         int toggleLocation = isSelected() ? getWidth() - getHeight() : 0;
         g.setColor(switchColor);
