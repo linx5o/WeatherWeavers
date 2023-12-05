@@ -3,6 +3,7 @@ package interface_adapter.Hourly;
 import interface_adapter.Hourly.HourlyState;
 import interface_adapter.ViewModel;
 
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class HourlyViewModel extends ViewModel {
@@ -26,6 +27,11 @@ public class HourlyViewModel extends ViewModel {
 
     public void addPropertyChangeListener(java.beans.PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);
+    }
+
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
     }
 
     public HourlyState getState() {

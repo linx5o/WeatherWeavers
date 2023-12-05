@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -11,7 +12,7 @@ public class HumidityTest {
     private String descriptions;
     private Integer humidity;
 
-    @Test
+    @Before
     public void setUp() {
         descriptions = "Comfortable";
         humidity = 50;
@@ -20,26 +21,26 @@ public class HumidityTest {
     @Test
     public void testHumidity() {
         Humidity humidity = new Humidity(50);
-        assertEquals(Optional.of(50), humidity.getHumidity());
+        assert humidity.getHumidity() == 50;
     }
 
     @Test
     public void testSetHumidity() {
         Humidity humidity = new Humidity(50);
         humidity.setHumidity(60);
-        assertEquals(Optional.of(60), humidity.getHumidity());
+        assert humidity.getHumidity() == 60;
     }
 
     @Test
     public void testSetDescriptions() {
         Humidity humidity = new Humidity(50);
         humidity.setDescriptions();
-        assertEquals(Optional.of("Comfortable"), humidity.getDescriptions());
+        assertEquals("Comfortable", humidity.getDescriptions());
     }
 
     @Test
     public void testGetDescriptions() {
         Humidity humidity = new Humidity(50);
-        assertEquals(Optional.of("Comfortable"), humidity.getDescriptions());
+        assertEquals("Comfortable", humidity.getDescriptions());
     }
 }

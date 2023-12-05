@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -7,6 +8,7 @@ import static junit.framework.TestCase.assertEquals;
 public class TemperatureTest {
     private double degreeInC;
 
+    @Before
     public void setUp() {
         degreeInC = 20.0;
     }

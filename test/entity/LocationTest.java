@@ -1,5 +1,6 @@
 package entity;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -10,6 +11,7 @@ public class LocationTest {
     private double longitude;
     private double latitude;
 
+    @Before
     public void setUp() {
         cityName = "Toronto";
         longitude = 51.5074;
@@ -25,13 +27,13 @@ public class LocationTest {
     @Test
     public void testGetLatitude() {
         Location location = new Location(51.5074, 0.1278);
-        assertEquals(51.5074, location.getLatitude());
+        assertEquals(latitude, location.getLatitude());
     }
 
     @Test
     public void testGetLongitude() {
         Location location = new Location(51.5074, 0.1278);
-        assertEquals(0.1278, location.getLongitude());
+        assertEquals(longitude, location.getLongitude());
     }
 
     @Test

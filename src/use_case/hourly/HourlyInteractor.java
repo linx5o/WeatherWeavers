@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class HourlyInteractor implements HourlyInputBoundary{
 
-        private HourlyOutputBoundary hourlyPresenter;
-        private HourlyDataAccessInterface hourlyDataAccessObject;
-        private HourlySettingsDataAccessInterface hourlySettingsDataAccessObject;
+        final HourlyOutputBoundary hourlyPresenter;
+        final HourlyDataAccessInterface hourlyDataAccessObject;
+        final HourlySettingsDataAccessInterface hourlySettingsDataAccessObject;
 
         public HourlyInteractor(HourlyOutputBoundary hourlyOutputBoundary, HourlyDataAccessInterface hourlyDataAccessObject, HourlySettingsDataAccessInterface hourlySettingsDataAccessObject) {
             this.hourlyPresenter = hourlyOutputBoundary;

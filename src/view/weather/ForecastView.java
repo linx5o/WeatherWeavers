@@ -378,6 +378,45 @@ public class ForecastView extends RoundedPanel implements ActionListener, Proper
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // TODO: implement
+        forecastViewModel.removePropertyChangeListener(this);
+        controller.execute(9, true);
+        forecastViewModel.addPropertyChangeListener(this);
+        ForecastState state = forecastViewModel.getState();
+
+        this.forecast1.setText(state.getForecast1());
+        this.forecast1Temp.setText(state.getForecast1Temp());
+        this.forecast1Icon.setIcon(state.getForecast1Icon());
+
+        this.forecast2.setText(state.getForecast2());
+        this.forecast2Temp.setText(state.getForecast2Temp());
+        this.forecast2Icon.setIcon(state.getForecast2Icon());
+
+        this.forecast3.setText(state.getForecast3());
+        this.forecast3Temp.setText(state.getForecast3Temp());
+        this.forecast3Icon.setIcon(state.getForecast3Icon());
+
+        this.forecast4.setText(state.getForecast4());
+        this.forecast4Temp.setText(state.getForecast4Temp());
+        this.forecast4Icon.setIcon(state.getForecast4Icon());
+
+        this.forecast5.setText(state.getForecast5());
+        this.forecast5Temp.setText(state.getForecast5Temp());
+        this.forecast5Icon.setIcon(state.getForecast5Icon());
+
+        this.forecast6.setText(state.getForecast6());
+        this.forecast6Temp.setText(state.getForecast6Temp());
+        this.forecast6Icon.setIcon(state.getForecast6Icon());
+
+        this.forecast7.setText(state.getForecast7());
+        this.forecast7Temp.setText(state.getForecast7Temp());
+        this.forecast7Icon.setIcon(state.getForecast7Icon());
+
+        this.forecast8.setText(state.getForecast8());
+        this.forecast8Temp.setText(state.getForecast8Temp());
+        this.forecast8Icon.setIcon(state.getForecast8Icon());
+
+        this.forecast9.setText(state.getForecast9());
+        this.forecast9Temp.setText(state.getForecast9Temp());
+        this.forecast9Icon.setIcon(state.getForecast9Icon());
     }
 }
