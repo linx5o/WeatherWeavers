@@ -143,4 +143,5 @@ public class ForecastInteractorTest {
         forecastInteractorInvalid.execute(2, true);
     }
 
+
 }
