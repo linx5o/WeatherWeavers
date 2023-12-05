@@ -15,22 +15,28 @@ public class OtherCitiesControllerTest {
 
     @Before
     public void setUp() {
-        // Initialize the stub implementation
+
+        // Initialize the mock implementation
+
         mockInputBoundary = new MockGetOtherCitiesInputBoundary();
 
-        // Create an instance of OtherCitiesController with the stub
+        // Create an instance of OtherCitiesController with the mock
+
         controller = new OtherCitiesController(mockInputBoundary);
     }
 
     @Test
     public void testExecute() {
+
         // Call the method to test
+
         controller.execute();
 
         assertTrue("Execute method should have been called", mockInputBoundary.wasExecuteCalled());
     }
 
-    // Stub implementation of GetOtherCitiesInputBoundary
+    // Mock implementation of GetOtherCitiesInputBoundary
+
     private static class MockGetOtherCitiesInputBoundary implements GetOtherCitiesInputBoundary {
         private boolean executeCalled = false;
 
