@@ -32,6 +32,7 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
 
     @Override
     public int addCity(String city) {
+        System.out.println(city);
         Settings settings = readSettings();
         if (settings.getSavedCities().contains(city)) {
             return 1;
@@ -39,7 +40,7 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
         if (settings.getDefaultCity().equals(city)) {
             return 2;
         }
-        if (isValidCity(city)) {
+        if (!isValidCity(city)) {
             return 3;
         }
         if (settings.getSavedCities().size() == 5) {
@@ -107,7 +108,7 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
                 String saved = bufferedReader.readLine();
                 ArrayList<String> savedCities = new ArrayList<String>();
                 if (saved != null) {
-                    String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                    String[] savedCitiesStr = saved.split(";");
                     for (String savedCity : savedCitiesStr) {
                         if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
                             throw new IOException("File is not in the correct format");

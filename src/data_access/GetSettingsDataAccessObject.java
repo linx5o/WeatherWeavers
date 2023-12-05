@@ -42,7 +42,7 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
                 String saved = bufferedReader.readLine();
                 ArrayList<String> savedCities = new ArrayList<String>();
                 if (saved != null) {
-                    String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                    String[] savedCitiesStr = saved.split(";");
                     for (String savedCity : savedCitiesStr) {
                         if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
                             throw new IOException("File is not in the correct format");
