@@ -54,7 +54,7 @@ public class SettingsUseCaseFactory {
 
             return new SettingsView(settingsViewModel, settingsStartController, eraseCityController, setCityController, setDefaultCityController, setTempUnitController, setTimeFormatController);
         } catch (Exception e) {
-            // TODO - better error handling
+            System.err.println("An error occurred while creating the SettingsUseCaseFactory: " + e.getMessage());
         }
 
         return null;
