@@ -9,6 +9,7 @@ public class SettingsStartInteractor implements SettingsStartInputBoundary {
 
     public SettingsStartInteractor(SettingsStartOutputBoundary presenter, SettingsDataAccessInterface settingsDataAccessObject) {
         this.presenter = presenter;
+        this.settingsDataAccessObject = settingsDataAccessObject;
     }
 
     @Override
