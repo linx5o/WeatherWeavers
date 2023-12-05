@@ -14,20 +14,21 @@ public class SetCityInteractor implements SetCityInputBoundary{
 
     @Override
     public void execute(SetCityInputData setCityInputData){
-        if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 0) {
+        int response = setCityDataAccessObject.addCity(setCityInputData.getCity());
+        if (response == 0) {
             SetCityOutputData setCityOutputData = new SetCityOutputData(setCityDataAccessObject.getSettings().getSavedCities());
             setCityPresenter.prepareSuccessView(setCityOutputData, "Successfully set city!");
         }
-        else if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 1) {
+        else if (response == 1) {
             setCityPresenter.prepareFailView("Fail to add. City already exists.");
         }
-        else if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 2) {
+        else if (response == 2) {
             setCityPresenter.prepareFailView("Fail to add. City is the default city.");
         }
-        else if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 3) {
+        else if (response == 3) {
             setCityPresenter.prepareFailView("Fail to add. City weather data is not found.");
         }
-        else if (setCityDataAccessObject.addCity(setCityInputData.getCity()) == 4){
+        else if (response == 4){
             setCityPresenter.prepareFailView("Fail to add. Saved cities reached max number.");
         }
         else {

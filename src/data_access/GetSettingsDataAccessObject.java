@@ -10,6 +10,7 @@ import use_case.get_weather.GetSettingsDataAccessInterface;
 import use_case.get_weather_on_map.GetWeatherOnMapSettingDataAccessInterface;
 import use_case.hourly.HourlySettingsDataAccessInterface;
 import use_case.humidity.HumiditySettingDataAccessInterface;
+import use_case.settings_start.SettingsDataAccessInterface;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface, GetWeatherOnMapSettingDataAccessInterface, HumiditySettingDataAccessInterface {
+public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterface, HourlySettingsDataAccessInterface, ForecastSettingsDataAccessInterface, OtherCitiesSettingsDataAccessInterface, GetWeatherOnMapSettingDataAccessInterface, HumiditySettingDataAccessInterface, SettingsDataAccessInterface {
     @Override
     public Settings getSettings() {
         File file = new File("src/app/userpref.txt");
@@ -38,13 +39,16 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
                 Boolean celsius = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean darkMode = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean timeFormat = Boolean.parseBoolean(bufferedReader.readLine());
-                String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                String saved = bufferedReader.readLine();
                 ArrayList<String> savedCities = new ArrayList<String>();
-                for (String savedCity : savedCitiesStr) {
-                    if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
-                        throw new IOException("File is not in the correct format");
+                if (saved != null) {
+                    String[] savedCitiesStr = saved.split(";");
+                    for (String savedCity : savedCitiesStr) {
+                        if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
+                            throw new IOException("File is not in the correct format");
+                        }
+                        savedCities.add(savedCity);
                     }
-                    savedCities.add(savedCity);
                 }
                 return new Settings(celsius, darkMode, timeFormat, city, savedCities);
 
@@ -56,12 +60,6 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
         }
         // File does not exist, create a new file
         ArrayList<String> savedCities = new ArrayList<>();
-        savedCities.add("ottawa,ca");
-        savedCities.add("winnipeg,ca");
-        savedCities.add("montreal,ca");
-        savedCities.add("vancouver,ca");
-        savedCities.add("toronto,ca");
-        savedCities.add("calgary,ca");
 
         return new Settings(true, true, true, "toronto,ca", savedCities);
     }
