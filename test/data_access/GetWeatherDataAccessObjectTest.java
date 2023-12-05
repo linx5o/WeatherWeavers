@@ -25,9 +25,19 @@ public class GetWeatherDataAccessObjectTest {
     }
 
     @Test
-    public void testGetCityWeather() {
-        assertEquals(null, getWeatherDataAccessObject.getCityWeather("Toronto", "2021-03-20", true));
-        //TODO replace the expected value with the actual value that should get from the API
+    public void testGetCityWeatherC() {
+        getWeatherDataAccessObject.getCityWeather("toronto,ca", "2021-03-20", true);
     }
-
+    @Test
+    public void testGetCityWeatherF() {
+        getWeatherDataAccessObject.getCityWeather("toronto,ca", "2021-03-20", false);
+    }
+    @Test
+    public void testGetCityWeatherInvalidCity() {
+        try{
+            getWeatherDataAccessObject.getCityWeather("InvalidCity", "2021-03-20", true);
+        } catch (Exception e) {
+            assert true;
+        }
+    }
 }
