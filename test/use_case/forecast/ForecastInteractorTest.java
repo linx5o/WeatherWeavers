@@ -142,5 +142,4 @@ public class ForecastInteractorTest {
     public void testExecuteInvalidCity() {
         forecastInteractorInvalid.execute(2, true);
     }
-
 }
