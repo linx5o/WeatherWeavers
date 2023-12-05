@@ -201,7 +201,8 @@ public class Main {
 
         JPanel searchPlaceHolder = new JPanel();
         searchPlaceHolder.setPreferredSize(new Dimension(920, 80));
-        searchPlaceHolder.setBackground(Color.cyan);
+        searchPlaceHolder.setBackground(Color.decode("#0D131D"));
+
         search.add(searchPlaceHolder);
 
 
