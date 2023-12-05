@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterface, SetCityDataAccessInterface, SetDefaultCityDataAccessInterface, SetTempUnitDataAccessInterface, SetTimeFormatDataAccessInterface {
+    private static final String API_TOKEN = System.getenv("API_TOKEN");
+    private static final String API_SECRET = System.getenv("API_SECRET");
 
     @Override
     public Boolean eraseCity(String city) {
@@ -73,10 +75,10 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
         if (settings.getSavedCities().contains(city)) {
             return false;
         }
-        if (!isValidCity(city)) {
+        if (settings.getDefaultCity().equals(city)) {
             return false;
         }
-        if (settings.getDefaultCity().equals(city)) {
+        if (!isValidCity(city)) {
             return false;
         }
         settings.setDefaultCity(city);
@@ -102,13 +104,16 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
                 Boolean celsius = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean darkMode = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean timeFormat = Boolean.parseBoolean(bufferedReader.readLine());
-                String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                String saved = bufferedReader.readLine();
                 ArrayList<String> savedCities = new ArrayList<String>();
-                for (String savedCity : savedCitiesStr) {
-                    if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
-                        throw new IOException("File is not in the correct format");
+                if (saved != null) {
+                    String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                    for (String savedCity : savedCitiesStr) {
+                        if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
+                            throw new IOException("File is not in the correct format");
+                        }
+                        savedCities.add(savedCity);
                     }
-                    savedCities.add(savedCity);
                 }
                 return new Settings(celsius, darkMode, timeFormat, city, savedCities);
 
@@ -138,6 +143,8 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
             bufferedWriter.write(settings.getTimeFormat().toString());
             bufferedWriter.newLine();
             bufferedWriter.write(String.join(";", settings.getSavedCities()));
+
+            bufferedWriter.flush();
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file: " + e.getMessage());
         }
@@ -150,7 +157,7 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
-                .url(String.format("https://api.aerisapi.com/observations/%s?format=json&filter=1min&limit=1&client_id=%s&client_secret=%s", city, "API_TOKEN", "API_SECRET"))
+                .url(String.format("https://api.aerisapi.com/conditions/%s?format=json&filter=1min&limit=1&client_id=%s&client_secret=%s", city, API_TOKEN, API_SECRET))
                 .build();
         try {
             Response response = client.newCall(request).execute();

@@ -39,13 +39,16 @@ public class GetSettingsDataAccessObject implements GetSettingsDataAccessInterfa
                 Boolean celsius = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean darkMode = Boolean.parseBoolean(bufferedReader.readLine());
                 Boolean timeFormat = Boolean.parseBoolean(bufferedReader.readLine());
-                String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                String saved = bufferedReader.readLine();
                 ArrayList<String> savedCities = new ArrayList<String>();
-                for (String savedCity : savedCitiesStr) {
-                    if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
-                        throw new IOException("File is not in the correct format");
+                if (saved != null) {
+                    String[] savedCitiesStr = bufferedReader.readLine().split(";");
+                    for (String savedCity : savedCitiesStr) {
+                        if (!savedCity.matches("^[A-Za-z]+,[A-Za-z]+$")) {
+                            throw new IOException("File is not in the correct format");
+                        }
+                        savedCities.add(savedCity);
                     }
-                    savedCities.add(savedCity);
                 }
                 return new Settings(celsius, darkMode, timeFormat, city, savedCities);
 
