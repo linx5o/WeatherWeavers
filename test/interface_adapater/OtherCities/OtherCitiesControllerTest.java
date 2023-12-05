@@ -1,4 +1,5 @@
 package interface_adapater.OtherCities;
+
 import interface_adapter.OtherCities.OtherCitiesController;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,19 +11,26 @@ import java.time.LocalTime;
 
 public class OtherCitiesControllerTest {
 
-    private MockGetOtherCitiesInputBoundary mockInputBoundary;
+    private GetOtherCitiesInputBoundary getOtherCitiesInteractor;
     private OtherCitiesController controller;
+    private boolean wasExecuteCalled = false;
 
     @Before
     public void setUp() {
 
         // Initialize the mock implementation
 
-        mockInputBoundary = new MockGetOtherCitiesInputBoundary();
+        getOtherCitiesInteractor = new GetOtherCitiesInputBoundary() {
+
+            @Override
+            public void execute(LocalTime time) {
+                wasExecuteCalled = true;
+            }
+        };
 
         // Create an instance of OtherCitiesController with the mock
 
-        controller = new OtherCitiesController(mockInputBoundary);
+        controller = new OtherCitiesController(getOtherCitiesInteractor);
     }
 
     @Test
@@ -32,23 +40,9 @@ public class OtherCitiesControllerTest {
 
         controller.execute();
 
-        assertTrue("Execute method should have been called", mockInputBoundary.wasExecuteCalled());
+        assertTrue("Execute method should have been called", wasExecuteCalled);
     }
 
-    // Mock implementation of GetOtherCitiesInputBoundary
-
-    private static class MockGetOtherCitiesInputBoundary implements GetOtherCitiesInputBoundary {
-        private boolean executeCalled = false;
-
-        @Override
-        public void execute(LocalTime time) {
-            this.executeCalled = true;
-        }
-
-        public boolean wasExecuteCalled() {
-            return executeCalled;
-        }
-    }
 }
 
 
