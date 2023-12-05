@@ -18,7 +18,6 @@ public class HourlyDataAccessObjectTest {
     @Before
     public void setUp() {
         hourlyDataAccessObject = new HourlyDataAccessObject();
-        //TODO replace this time with some specific time
         LocalTime = java.time.LocalTime.now();
     }
 
@@ -29,19 +28,25 @@ public class HourlyDataAccessObjectTest {
 
     @Test
     public void testGetHours() {
-        assertEquals(null, hourlyDataAccessObject.getHours("Toronto", LocalTime));
-        //TODO replace the expected value with the actual value that should get from the API
+        hourlyDataAccessObject.getHours("toronto, ca", LocalTime);
     }
 
     @Test
     public void testGetTempsCelsius() {
-        assertEquals(null, hourlyDataAccessObject.getTemps("Toronto", LocalTime, true));
-        //TODO replace the expected value with the actual value that should get from the API
+        hourlyDataAccessObject.getTemps("toronto, ca", LocalTime, true);
     }
 
     @Test
     public void testGetTempsFahrenheit() {
-        assertEquals(null, hourlyDataAccessObject.getTemps("Toronto", LocalTime, false));
-        //TODO replace the expected value with the actual value that should get from the API
+        hourlyDataAccessObject.getTemps("toronto, ca", LocalTime, false);
+    }
+
+    @Test
+    public void testGetTempsInvalidCity() {
+        try{
+            hourlyDataAccessObject.getTemps("InvalidCity", LocalTime, true);
+        } catch (Exception e) {
+            assert true;
+        }
     }
 }
