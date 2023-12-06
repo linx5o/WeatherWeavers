@@ -10,7 +10,8 @@ public class GetWeatherOnMapController {
         this.getWeatherOnMapInteractor = getWeatherOnMapInteractor;
     }
 
-    public void execute(GetWeatherOnMapInputData getWeatherOnMapInputData) {
+    public void execute() {
+        GetWeatherOnMapInputData getWeatherOnMapInputData = new GetWeatherOnMapInputData();
         getWeatherOnMapInteractor.execute(getWeatherOnMapInputData);
     }
 }
