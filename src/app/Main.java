@@ -18,6 +18,7 @@ import use_case.humidity.HumidityDataAccessInterface;
 import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import use_case.settings_start.SettingsDataAccessInterface;
 import view.ViewManager;
+import view.cities.CitiesView;
 import view.settings.SettingsView;
 import view.sidebar.SidebarView;
 import view.map.MapView;
@@ -219,12 +220,12 @@ public class Main {
         // Main Content
         mainSide.add(content, BorderLayout.CENTER);
 
-//        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel, weatherViewModel);
-//        content.add(weatherView, weatherView.viewName);
+        WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel, weatherViewModel);
+        content.add(weatherView, weatherView.viewName);
 
 
-//        CitiesView citiesView = CitiesUseCaseFactory.create(mainContentViewManagerModel, citiesViewModel, mapViewModel, getWeatherViewModel);
-//        content.add(citiesView, citiesView.viewName);
+        CitiesView citiesView = CitiesUseCaseFactory.create();
+        content.add(citiesView, citiesView.viewName);
 //
         MapView mapView = MapUseCaseFactory.create(mainContentViewManagerModel, mapViewModel, getWeatherOnMapDataAccessObject, getSettingsDataAccessObject);
         content.add(mapView, mapView.viewName);
