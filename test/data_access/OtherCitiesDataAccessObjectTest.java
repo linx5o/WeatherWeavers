@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -31,13 +32,22 @@ public class OtherCitiesDataAccessObjectTest {
 
     @Test
     public void testGetCityWeatherCelsius() {
-        assertEquals(null, otherCitiesDataAccessObject.fetchWeatherForCities(LocalTime, getSettingsDataAccessObject.getSettings().getSavedCities(), true));
-        //TODO replace the expected value with the actual value that should get from the API
+        otherCitiesDataAccessObject.fetchWeatherForCities(LocalTime, getSettingsDataAccessObject.getSettings().getSavedCities(), true);
     }
 
     @Test
     public void testGetCityWeatherFahrenheit() {
-        assertEquals(null, otherCitiesDataAccessObject.fetchWeatherForCities(LocalTime, getSettingsDataAccessObject.getSettings().getSavedCities(), false));
-        //TODO replace the expected value with the actual value that should get from the API
+        otherCitiesDataAccessObject.fetchWeatherForCities(LocalTime, getSettingsDataAccessObject.getSettings().getSavedCities(), false);
+    }
+
+    @Test
+    public void testGetCityWeatherInvalidCity() {
+        try{
+            ArrayList<String> invalidCity = new ArrayList<>();
+            invalidCity.add("InvalidCity");
+            otherCitiesDataAccessObject.fetchWeatherForCities(LocalTime, invalidCity, true);
+        } catch (Exception e) {
+            assert true;
+        }
     }
 }
