@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.web.WebView;
 import use_case.forecast.ForecastSettingsDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
+import view.RoundedPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,7 @@ public class GetWeatherOnMapInteractor implements GetWeatherOnMapInputBoundary{
     @Override
     public void execute(GetWeatherOnMapInputData getWeatherOnMapInputData) {
 
-        JPanel panel = this.getWeatherOnMapDataAccessObject.getWeatherOnMap();
+        RoundedPanel panel = this.getWeatherOnMapDataAccessObject.getWeatherOnMap();
 
         GetWeatherOnMapOutputData getWeatherOnMapOutputData = new GetWeatherOnMapOutputData(panel);
         this.getWeatherOnMapPresenter.prepareWeatherPage(getWeatherOnMapOutputData);
