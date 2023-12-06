@@ -30,6 +30,7 @@ public class OtherCitiesPresenter implements GetOtherCitiesOutputBoundary {
         
         state.setOtherCitiesWeather(cityWeathers_list);
         otherCitiesViewModel.setState(state);
+        otherCitiesViewModel.firePropertyChanged();
     }
 
     @NotNull
