@@ -21,7 +21,7 @@ public class GetWeatherOnMapDataAccessObjectTest {
 
     @Test
     public void testGetWeatherOnMap() {
-        //TODO Can't test this method because it returns a JPanel
+        assert getWeatherOnMapDataAccessObject.getWeatherOnMap() != null;
     }
 
     @Test
