@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import use_case.forecast.ForecastSettingsDataAccessInterface;
 import use_case.get_weather.GetSettingsDataAccessInterface;
+import view.RoundedPanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -39,9 +40,9 @@ public class GetWeatherOnMapInteractorTest {
 
         getWeatherOnMapDataAccessObject = new GetWeatherOnMapDataAccessObject() {
             @Override
-            public JPanel getWeatherOnMap() {
+            public RoundedPanel getWeatherOnMap() {
                 assert true;
-                return new JPanel();
+                return new RoundedPanel(40);
                 // this is a Jpanel, so we can't really test it
             }
         };

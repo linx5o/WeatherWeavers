@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import use_case.get_weather_on_map.GetWeatherOnMapDataAccessInterface;
 import use_case.get_weather_on_map.GetWeatherOnMapSettingDataAccessInterface;
+import view.RoundedPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,14 +30,14 @@ public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAcces
     }
 
     @Override
-    public JPanel getWeatherOnMap() {
+    public RoundedPanel getWeatherOnMap() {
         final JFXPanel jfxPanel = new JFXPanel();
 
         Platform.runLater(() -> {
             WebView webView = new WebView();
             jfxPanel.setScene(new Scene(webView));
 
-            String[] coordinates = getCoordinates(GetSettingsDataAccessObject.getSettings().getDefaultCity());
+            String[] coordinates = getCoordinates(GetSettingsDataAccessObject.getSettings().getDefaultCity().split(",")[0]);
             String longitude;
             String latitude;
             if (coordinates != null) {
@@ -66,7 +67,7 @@ public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAcces
 
         });
 
-        JPanel panel = new JPanel();
+        RoundedPanel panel = new RoundedPanel(40);
         panel.setLayout(new BorderLayout());
         panel.add(jfxPanel, BorderLayout.CENTER);
 

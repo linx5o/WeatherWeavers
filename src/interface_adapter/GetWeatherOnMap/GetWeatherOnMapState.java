@@ -1,12 +1,14 @@
 package interface_adapter.GetWeatherOnMap;
 
+import view.RoundedPanel;
+
 import javax.swing.*;
 
 public class GetWeatherOnMapState {
     private double centerLatitude;
     private double centerLongitude;
 
-    private JPanel mapPanel;
+    private RoundedPanel mapPanel;
 
     // Constructor
     public GetWeatherOnMapState() {
@@ -33,11 +35,11 @@ public class GetWeatherOnMapState {
         this.centerLongitude = centerLongitude;
     }
 
-    public JPanel getMapPanel() {
+    public RoundedPanel getMapPanel() {
         return mapPanel;
     }
 
-    public void setMapPanel(JPanel mapPanel) {
+    public void setMapPanel(RoundedPanel mapPanel) {
         this.mapPanel = mapPanel;
     }
 
