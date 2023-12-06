@@ -1,4 +1,4 @@
-package view.weather;
+package view.map;
 
 import interface_adapter.GetWeatherOnMap.GetWeatherOnMapController;
 import interface_adapter.GetWeatherOnMap.GetWeatherOnMapViewModel;
@@ -8,17 +8,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Map;
 
 public class MapView extends JPanel implements ActionListener, PropertyChangeListener {
-    public final String viewName = "Map View";
-    private final JLabel map = new JLabel();
+    public final String viewName = "map";
+
+    JPanel mapPanel = new JPanel();
 
     private final GetWeatherOnMapController controller;
-    private final GetWeatherOnMapViewModel humidityViewModel;
+    private final GetWeatherOnMapViewModel viewModel;
 
-    public MapView(GetWeatherOnMapController controller, GetWeatherOnMapViewModel humidityViewModel) {
+
+    public MapView(GetWeatherOnMapController controller, GetWeatherOnMapViewModel viewModel) {
         this.controller = controller;
-        this.humidityViewModel = humidityViewModel;
+        this.viewModel = viewModel;
+
+        controller.execute();
+        this.viewModel.addPropertyChangeListener(this);
+
+        this.add(mapPanel);
     }
 
 
@@ -29,6 +37,6 @@ public class MapView extends JPanel implements ActionListener, PropertyChangeLis
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        mapPanel = viewModel.getState().getMapPanel();
     }
 }
