@@ -1,10 +1,15 @@
 package app;
 
 import interface_adapter.Forecast.ForecastController;
+
 import interface_adapter.Forecast.ForecastPresenter;
+
 import interface_adapter.Forecast.ForecastViewModel;
+
 import use_case.forecast.*;
+
 import use_case.get_weather.GetSettingsDataAccessInterface;
+
 import view.weather.ForecastView;
 
 public class ForecastUseCaseFactory {
