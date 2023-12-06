@@ -36,7 +36,7 @@ public class GetWeatherOnMapDataAccessObject implements GetWeatherOnMapDataAcces
             WebView webView = new WebView();
             jfxPanel.setScene(new Scene(webView));
 
-            String[] coordinates = getCoordinates(GetSettingsDataAccessObject.getSettings().getDefaultCity());
+            String[] coordinates = getCoordinates(GetSettingsDataAccessObject.getSettings().getDefaultCity().split(",")[0]);
             String longitude;
             String latitude;
             if (coordinates != null) {

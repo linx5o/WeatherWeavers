@@ -23,8 +23,8 @@ public class MapView extends JPanel implements ActionListener, PropertyChangeLis
         this.controller = controller;
         this.viewModel = viewModel;
 
-        controller.execute();
         this.viewModel.addPropertyChangeListener(this);
+        controller.execute();
 
         this.add(mapPanel);
     }
