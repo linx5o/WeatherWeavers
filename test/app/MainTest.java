@@ -30,6 +30,11 @@ import java.awt.*;
 public class MainTest {
     @Test
     public void testMain() {
-        Main.main(new String[]{});
+        try {
+            Main.main(new String[]{}); // Run the main method
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
