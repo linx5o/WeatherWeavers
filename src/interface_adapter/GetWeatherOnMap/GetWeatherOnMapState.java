@@ -35,7 +35,7 @@ public class GetWeatherOnMapState {
         this.centerLongitude = centerLongitude;
     }
 
-    public JPanel getMapPanel() {
+    public RoundedPanel getMapPanel() {
         return mapPanel;
     }
 
