@@ -21,7 +21,7 @@ public class GetSettingsDataAccessObjectTest {
         savedCities.add("vancouver,ca");
         savedCities.add("winnipeg,ca");
         savedCities.add("calgary,ca");
-        this.settings = new Settings(true, true, true, "toronto,ca", savedCities);
+        this.settings = new Settings(true, true, true, "toronto,on", savedCities);
 
     }
     @Test

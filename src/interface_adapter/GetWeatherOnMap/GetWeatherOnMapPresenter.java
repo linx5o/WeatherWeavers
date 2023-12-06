@@ -14,7 +14,7 @@ public class GetWeatherOnMapPresenter implements GetWeatherOnMapOutputBoundary {
     public void prepareWeatherPage(GetWeatherOnMapOutputData getWeatherOnMapOutputData) {
         GetWeatherOnMapState state = getWeatherOnMapViewModel.getState();
         state.setMapPanel(getWeatherOnMapOutputData.getPanel());
-
+        getWeatherOnMapViewModel.setState(state);
         getWeatherOnMapViewModel.firePropertyChanged();
     }
 }

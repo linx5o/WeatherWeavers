@@ -12,13 +12,16 @@ import interface_adapter.Settings.SettingsViewModel;
 import interface_adapter.Sidebar.SidebarViewModel;
 import use_case.forecast.ForecastDataAccessInterface;
 import use_case.get_weather.GetWeatherDataAccessInterface;
+import use_case.get_weather_on_map.GetWeatherOnMapDataAccessInterface;
 import use_case.hourly.HourlyDataAccessInterface;
 import use_case.humidity.HumidityDataAccessInterface;
 import use_case.get_other_cities.GetOtherCitiesDataAccessInterface;
 import use_case.settings_start.SettingsDataAccessInterface;
 import view.ViewManager;
+import view.cities.CitiesView;
 import view.settings.SettingsView;
 import view.sidebar.SidebarView;
+import view.map.MapView;
 import view.weather.WeatherView;
 import interface_adapter.Forecast.ForecastViewModel;
 
@@ -155,6 +158,7 @@ public class Main {
         ForecastDataAccessInterface forecastDataAccessObject = new ForecastDataAccessObject();
         SettingsDataAccessInterface settingsDataAccessObject = new SettingsDataAccessObject();
         ChangeSettingsDataAccessObject changeSettingsDataAccessObject = new ChangeSettingsDataAccessObject();
+        GetWeatherOnMapDataAccessInterface getWeatherOnMapDataAccessObject = new GetWeatherOnMapDataAccessObject();
 
         // Define Content View Manager
         CardLayout cardLayout = new CardLayout();
@@ -219,19 +223,19 @@ public class Main {
         WeatherView weatherView = WeatherFactory.create(mainContentViewManager, getWeatherViewModel, getWeatherDataAccessObject, getSettingsDataAccessObject, hourlyViewModel, hourlyDataAccessObject, humidityViewModel, humidityDataAccessObject, otherCitiesViewModel, otherCitiesDataAccessObject, forecastViewModel, forecastDataAccessObject, citiesViewModel, mapViewModel, settingsViewModel, weatherViewModel);
         content.add(weatherView, weatherView.viewName);
 
+
+        CitiesView citiesView = CitiesUseCaseFactory.create();
+        content.add(citiesView, citiesView.viewName);
 //
-//        CitiesView citiesView = CitiesUseCaseFactory.create(mainContentViewManagerModel, citiesViewModel, mapViewModel, getWeatherViewModel);
-//        content.add(citiesView, citiesView.viewName);
-//
-//        MapView mapView = MapUseCaseFactory.create(mainContentViewManagerModel, mapViewModel, getWeatherViewModel, citiesViewModel);
-//        content.add(mapView, mapView.viewName);
-//
+        MapView mapView = MapUseCaseFactory.create(mainContentViewManagerModel, mapViewModel, getWeatherOnMapDataAccessObject, getSettingsDataAccessObject);
+        content.add(mapView, mapView.viewName);
+
 
         SettingsView settingsView = SettingsUseCaseFactory.create(settingsViewModel, settingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject, changeSettingsDataAccessObject);
         content.add(settingsView, settingsView.viewName);
 
-        mainContentViewManagerModel.setActiveView(weatherView.viewName);
-        mainContentViewManagerModel.firePropertyChanged();
+//        mainContentViewManagerModel.setActiveView(weatherView.viewName);
+//        mainContentViewManagerModel.firePropertyChanged();
 
 //        JPanel contentPlaceHolder = new JPanel();
 //        contentPlaceHolder.setPreferredSize(new Dimension(920, 620));
