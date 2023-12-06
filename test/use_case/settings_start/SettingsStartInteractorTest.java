@@ -17,7 +17,7 @@ public class SettingsStartInteractorTest {
         presenter = new SettingsStartOutputBoundary() {
             @Override
             public void prepareSuccessView(SettingsStartOutputData outputData) {
-                settings = new Settings(outputData.getCelsius(), true, outputData.getTime24(), outputData.getDefaultCity(), new ArrayList<String>());
+                settings = new Settings(outputData.getCelsius(), true, outputData.getTime24(), outputData.getDefaultCity(), outputData.getCities());
             }
         };
 
