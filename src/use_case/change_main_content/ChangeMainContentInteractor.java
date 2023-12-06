@@ -1,7 +1,7 @@
 package use_case.change_main_content;
 
 public class ChangeMainContentInteractor implements ChangeMainContentInputBoundary{
-    private final ChangeMainContentOutputBoundary changeMainContentPresenter;
+    final ChangeMainContentOutputBoundary changeMainContentPresenter;
 
     public ChangeMainContentInteractor(ChangeMainContentOutputBoundary outputBoundary) {
         this.changeMainContentPresenter = outputBoundary;
