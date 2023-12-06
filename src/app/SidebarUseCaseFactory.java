@@ -16,7 +16,7 @@ import interface_adapter.WeatherViewModel;
 import use_case.change_main_content.ChangeMainContentInputBoundary;
 import use_case.change_main_content.ChangeMainContentInteractor;
 import use_case.change_main_content.ChangeMainContentOutputBoundary;
-import use_case.change_unit.ChangeUnitOutputBoundary;
+//import use_case.change_unit.ChangeUnitOutputBoundary;
 import view.sidebar.SidebarView;
 
 public class SidebarUseCaseFactory {
