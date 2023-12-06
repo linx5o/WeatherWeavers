@@ -59,7 +59,7 @@ public class GetWeatherOnMapInteractorTest {
 
     @Test
     public void testOutputDataFunctionality() {
-        GetWeatherOnMapOutputData getWeatherOnMapOutputData = new GetWeatherOnMapOutputData(new JPanel());
+        GetWeatherOnMapOutputData getWeatherOnMapOutputData = new GetWeatherOnMapOutputData(new RoundedPanel(40));
         JPanel newPanel = getWeatherOnMapOutputData.getPanel();
     }
 }
