@@ -4,8 +4,9 @@ package use_case.settings_start;
 import entity.Settings;
 
 public class SettingsStartInteractor implements SettingsStartInputBoundary {
-    private SettingsStartOutputBoundary presenter;
-    private SettingsDataAccessInterface settingsDataAccessObject;
+
+    final SettingsStartOutputBoundary presenter;
+    final SettingsDataAccessInterface settingsDataAccessObject;
 
     public SettingsStartInteractor(SettingsStartOutputBoundary presenter, SettingsDataAccessInterface settingsDataAccessObject) {
         this.presenter = presenter;
