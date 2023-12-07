@@ -18,3 +18,7 @@ Each person will have their own branch to work on their part of the project.
 ## Mock View
 
 ![Home Page.png](Home%20Page.png)
+
+## Mock Settings View
+
+![img.png](img.png)
