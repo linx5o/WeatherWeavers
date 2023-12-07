@@ -43,7 +43,7 @@ public class ChangeSettingsDataAccessObject implements EraseCityDataAccessInterf
         if (!isValidCity(city)) {
             return 3;
         }
-        if (settings.getSavedCities().size() == 5) {
+        if (settings.getSavedCities().size() == 6) {
             return 4;
         }
         settings.getSavedCities().add(city);
